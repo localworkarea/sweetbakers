@@ -384,30 +384,6 @@
 
 
 
-.menu-header {
-
-	// .menu-header__icon
-	&__icon {
-	}
-	// .menu-header__body
-	&__body {
-	
-	}
-	// .menu-header__list
-	&__list {
-		@media (max-width: toEm($mobile)) {
-		}
-	}
-	// .menu-header__item
-	&__item {
-	}
-	// .menu-header__link
-	&__link {
-		@media (max-width: toEm($mobile)) {
-		}
-	}
-}
-
 //Burger Icon
 .icon-menu {
 	display: none;

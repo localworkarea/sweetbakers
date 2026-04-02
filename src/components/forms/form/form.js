@@ -66,14 +66,20 @@ function formInit() {
 					form: form
 				}
 			}));
+
+			document.documentElement.classList.add('--form-sent');
+			setTimeout(() => {
+				document.documentElement.classList.remove('--form-sent');
+			}, 6500);
+
 			// Показуємо попап, якщо підключено модуль попапів 
 			// та для форми вказано налаштування
-			setTimeout(() => {
-				if (window.flsPopup) {
-					const popup = form.dataset.flsFormPopup;
-					popup ? window.flsPopup.open(popup) : null;
-				}
-			}, 0);
+			// setTimeout(() => {
+			// 	if (window.flsPopup) {
+			// 		const popup = form.dataset.flsFormPopup;
+			// 		popup ? window.flsPopup.open(popup) : null;
+			// 	}
+			// }, 0);
 			// Очищуємо форму
 			formValidate.formClean(form);
 			// Повідомляємо до консолі
@@ -81,31 +87,31 @@ function formInit() {
 		}
 	}
 	// Робота із полями форми.
-	function formFieldsInit() {
-		document.body.addEventListener("focusin", function (e) {
-			const targetElement = e.target;
-			if ((targetElement.tagName === 'INPUT' || targetElement.tagName === 'TEXTAREA')) {
-				if (!targetElement.hasAttribute('data-fls-form-nofocus')) {
-					targetElement.classList.add('--form-focus');
-					targetElement.parentElement.classList.add('--form-focus');
-				}
-				targetElement.hasAttribute('data-fls-form-validatenow') ? formValidate.removeError(targetElement) : null;
-			}
-		});
-		document.body.addEventListener("focusout", function (e) {
-			const targetElement = e.target;
-			if ((targetElement.tagName === 'INPUT' || targetElement.tagName === 'TEXTAREA')) {
-				if (!targetElement.hasAttribute('data-fls-form-nofocus')) {
-					targetElement.classList.remove('--form-focus');
-					targetElement.parentElement.classList.remove('--form-focus');
-				}
-				// Миттєва валідація
-				targetElement.hasAttribute('data-fls-form-validatenow') ? formValidate.validateInput(targetElement) : null;
-			}
-		});
-	}
+	// function formFieldsInit() {
+	// 	document.body.addEventListener("focusin", function (e) {
+	// 		const targetElement = e.target;
+	// 		if ((targetElement.tagName === 'INPUT' || targetElement.tagName === 'TEXTAREA')) {
+	// 			if (!targetElement.hasAttribute('data-fls-form-nofocus')) {
+	// 				targetElement.classList.add('--form-focus');
+	// 				targetElement.parentElement.classList.add('--form-focus');
+	// 			}
+	// 			targetElement.hasAttribute('data-fls-form-validatenow') ? formValidate.removeError(targetElement) : null;
+	// 		}
+	// 	});
+	// 	document.body.addEventListener("focusout", function (e) {
+	// 		const targetElement = e.target;
+	// 		if ((targetElement.tagName === 'INPUT' || targetElement.tagName === 'TEXTAREA')) {
+	// 			if (!targetElement.hasAttribute('data-fls-form-nofocus')) {
+	// 				targetElement.classList.remove('--form-focus');
+	// 				targetElement.parentElement.classList.remove('--form-focus');
+	// 			}
+	// 			// Миттєва валідація
+	// 			targetElement.hasAttribute('data-fls-form-validatenow') ? formValidate.validateInput(targetElement) : null;
+	// 		}
+	// 	});
+	// }
 	formSubmit()
-	formFieldsInit()
+	// formFieldsInit()
 }
 document.querySelector('[data-fls-form]') ?
 	window.addEventListener('load', formInit) : null

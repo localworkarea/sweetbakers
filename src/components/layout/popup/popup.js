@@ -32,8 +32,8 @@ class Popup {
 			closeEsc: true, // Закриття ESC
 			bodyLock: true, // Блокування скролла
 			hashSettings: {
-				location: true, // Хеш в адресному рядку
-				goHash: true, // Перехід по наявності в адресному рядку
+				location: false, // Хеш в адресному рядку
+				goHash: false, // Перехід по наявності в адресному рядку
 			},
 			on: { // Події
 				beforeOpen: function () { },
@@ -42,7 +42,7 @@ class Popup {
 				afterClose: function () { },
 			},
 		}
-		this.youTubeCode;
+		// this.youTubeCode;
 		this.isOpen = false;
 		// Поточне вікно
 		this.targetOpen = {
@@ -116,9 +116,9 @@ class Popup {
 				this._dataValue = buttonOpen.getAttribute(this.options.attributeOpenButton) ?
 					buttonOpen.getAttribute(this.options.attributeOpenButton) :
 					'error';
-				this.youTubeCode = buttonOpen.getAttribute(this.options.youtubeAttribute) ?
-					buttonOpen.getAttribute(this.options.youtubeAttribute) :
-					null;
+				// this.youTubeCode = buttonOpen.getAttribute(this.options.youtubeAttribute) ?
+				// 	buttonOpen.getAttribute(this.options.youtubeAttribute) :
+				// 	null;
 				if (this._dataValue !== 'error') {
 					if (!this.isOpen) this.lastFocusEl = buttonOpen;
 					this.targetOpen.selector = `${this._dataValue}`;
@@ -184,20 +184,20 @@ class Popup {
 			this.targetOpen.element = document.querySelector(`[${this.options.attributeMain}=${this.targetOpen.selector}]`);
 
 			if (this.targetOpen.element) {
-				// YouTube
-				const codeVideo = this.youTubeCode || this.targetOpen.element.getAttribute(`${this.options.youtubeAttribute}`)
-				if (codeVideo) {
-					const urlVideo = `https://www.youtube.com/embed/${codeVideo}?rel=0&showinfo=0&autoplay=1`
-					const iframe = document.createElement('iframe')
-					const autoplay = this.options.setAutoplayYoutube ? 'autoplay;' : ''
-					iframe.setAttribute('allowfullscreen', '')
-					iframe.setAttribute('allow', `${autoplay}; encrypted-media`)
-					iframe.setAttribute('src', urlVideo)
-					if (!this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`)) {
-						this.targetOpen.element.querySelector('[data-fls-popup-content]').setAttribute(`${this.options.youtubePlaceAttribute}`, '')
-					}
-					this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`).appendChild(iframe)
-				}
+				// // YouTube
+				// const codeVideo = this.youTubeCode || this.targetOpen.element.getAttribute(`${this.options.youtubeAttribute}`)
+				// if (codeVideo) {
+				// 	const urlVideo = `https://www.youtube.com/embed/${codeVideo}?rel=0&showinfo=0&autoplay=1`
+				// 	const iframe = document.createElement('iframe')
+				// 	const autoplay = this.options.setAutoplayYoutube ? 'autoplay;' : ''
+				// 	iframe.setAttribute('allowfullscreen', '')
+				// 	iframe.setAttribute('allow', `${autoplay}; encrypted-media`)
+				// 	iframe.setAttribute('src', urlVideo)
+				// 	if (!this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`)) {
+				// 		this.targetOpen.element.querySelector('[data-fls-popup-content]').setAttribute(`${this.options.youtubePlaceAttribute}`, '')
+				// 	}
+				// 	this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`).appendChild(iframe)
+				// }
 				if (this.options.hashSettings.location) {
 					// Отримання хешу та його виставлення
 					this._getHash()
@@ -262,11 +262,11 @@ class Popup {
 			}
 		}));
 		// YouTube
-		if (this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`)) {
-			setTimeout(() => {
-				this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`).innerHTML = ''
-			}, 500);
-		}
+		// if (this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`)) {
+		// 	setTimeout(() => {
+		// 		this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`).innerHTML = ''
+		// 	}, 500);
+		// }
 		this.previousOpen.element.removeAttribute(this.options.classes.popupActive);
 		// aria-hidden
 		this.previousOpen.element.setAttribute('aria-hidden', 'true');
@@ -307,11 +307,11 @@ class Popup {
 		let classInHash = window.location.hash.replace('#', '')
 
 		const openButton = document.querySelector(`[${this.options.attributeOpenButton}="${classInHash}"]`)
-		if (openButton) {
-			this.youTubeCode = openButton.getAttribute(this.options.youtubeAttribute) ?
-				openButton.getAttribute(this.options.youtubeAttribute) :
-				null
-		}
+		// if (openButton) {
+		// 	this.youTubeCode = openButton.getAttribute(this.options.youtubeAttribute) ?
+		// 		openButton.getAttribute(this.options.youtubeAttribute) :
+		// 		null
+		// }
 		if (classInHash) this.open(classInHash);
 	}
 	// Встановлення хеша

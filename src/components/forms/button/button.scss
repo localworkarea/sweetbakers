@@ -10,11 +10,16 @@
 	letter-spacing: 0.01em;
 	min-height: 48px;
 	border-radius: 100px;
+	border: 1px solid transparent;
 	// background-color: var(--primary);
 	// color: #fff;
 	text-align: center;
 	overflow: hidden;
-	transition: background-color .3s ease, color .3s ease;
+	transition: background-color .3s ease, color .3s ease, border-color .3s ease;
+	
+	@media (min-width:toEm($mobileSmall)){
+		font-size: 16px;
+	}
 
 	&::before {
 		@media (min-width:toEm(820.98)){
@@ -61,8 +66,21 @@
 	&--b {
 		background-color: #fff;
 		color: var(--primary);
+		border: unset;
 		&::before {
-			background-color: var(--primary);
+			background-color: var(--primary) !important;
+		}
+		@media (any-hover: hover){
+			&:hover{
+				color: #fff;
+			}
+		}
+	}
+	&--c {
+		background-color: var(--yellow-2);
+		color: var(--primary);
+		&::before {
+			background-color: var(--primary) !important;
 		}
 		@media (any-hover: hover){
 			&:hover{

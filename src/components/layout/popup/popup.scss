@@ -1,15 +1,19 @@
 body::after {
 	content: "";
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: var(--yellow-2);
 	position: fixed;
 	width: 100%;
 	height: 100%;
 	top: 0;
 	left: 0;
 	opacity: 0;
-	transition: opacity 0.8s ease 0s;
+	transition: opacity 0.4s ease 0s;
 	pointer-events: none;
 	z-index: 149;
+	@media (min-width:toEm($mobileSmall)){
+		transition: opacity 0.8s ease 0s;
+		background-color: rgba(0, 0, 0, 0.5);
+	}
 }
 [data-fls-popup-open] body::after {
 	opacity: 1;
@@ -20,20 +24,21 @@ body::after {
 	left: 0;
 	bottom: 0;
 	right: 0;
-	padding: 30px 10px;
-	transition: visibility 0.8s ease 0s;
+	padding: 30px 0px;
+	transition: opacity 0.65s ease 0s, visibility 0.65s ease 0s;
 	visibility: hidden;
+	opacity: 0;
 	pointer-events: none;
+	z-index: 150;
+	@media (min-width:toEm($mobileSmall)){
+		padding: 30px 10px;
+	}
 	&[data-fls-popup-active] {
-		z-index: 150;
+		opacity: 1;
 		visibility: visible;
 		overflow: auto;
 		pointer-events: auto;
 	}
-}
-[data-fls-popup-active] [data-fls-popup-body] {
-	visibility: visible;
-	transform: scale(1);
 }
 [data-fls-popup-wrapper] {
 	display: flex;
@@ -48,18 +53,276 @@ body::after {
 }
 [data-fls-popup-body] {
 	visibility: hidden;
-	transform: scale(0);
+	transform: translate(0%,20%);
+	opacity: 0;
 	transition:
-		transform 0.3s ease 0s,
-		visibility 0.3s ease 0s;
-	background-color: #eee;
-	padding: 20px;
+	transform 0.4s ease 0s,
+	opacity 0.4s ease 0s,
+	visibility 0.4s ease 0s;
+	background-color: var(--yellow-2);
 	width: 100%;
-	max-width: 900px;
-	border-radius: 20px;
+	max-width: 1290px;
+	border-radius: 30px;
+	overflow: hidden;
+	.popup-form & {
+	}
+}
+[data-fls-popup-active] [data-fls-popup-body] {
+	visibility: visible;
+	transform: translate(0%,0%);
+	opacity: 1;
 }
 
-[data-fls-popup-youtube-place] iframe {
-	width: 100%;
-	aspect-ratio: 16 / 9;
+[data-fls-popup-close] {
+	outline: none	;
+	position: absolute;
+	z-index: 5;
+	top: 0%;
+	right: 50%;
+	transform: translate(50%,0%);
+	@media (min-width:toEm($mobileSmall)){
+		top: 36px;
+		right: 40px;
+		transform: translate(0%,0%);
+	}
+	@media (any-hover: hover){
+		&:hover{
+			svg {
+				transform: scale(1.1);
+			}
+		}
+	}
+	svg {
+		transition: transform .3s ease;
+	}
+	.popup__close-i-1 {
+		display: none;
+		@media (min-width:toEm(820.98)){
+			 display: block; 
+		}
+	}
+	.popup__close-i-2 {
+		@media (min-width:toEm(820.98)){
+			 display: none; 
+		}
+	}
+}
+
+.popup {
+
+		&__close-i-1 {
+		}
+
+		&__close-i-2 {
+		}
+}
+
+
+.popup-form {
+		// .popup-form__content
+		&__content {
+			position: relative;
+			z-index: 1;
+			display: grid;
+			@media (min-width:toEm(1200.98)){
+				grid-template-columns: 1fr 1fr;
+			}
+			@media (max-width: toEm(1200.98)) and (min-width:toEm(820.98)) {
+				grid-template-columns: 60% 1fr;
+			}
+			@media (min-width:toEm(820.98)){
+				&::before {
+					content:'';
+					position: absolute;
+					z-index: -1;
+					top: 0%;
+					left: 50%;
+					transform: translate(0%,-9%);
+					width: 1824px;
+					aspect-ratio: 1824/1680;
+					background-color: #fff;
+					border-radius: 50%;
+				}
+			}
+		}
+
+		// .popup-form__body
+		&__body {
+			position: relative;
+			@media (min-width:toEm(1200.98)){
+				padding-block: 90px 97px;
+				padding-left: 105px;
+			}
+			@media (max-width: toEm(1200.98)) and (min-width:toEm(820.98)) {
+				padding-block: 60px;
+				padding-left: 60px;
+			}
+			@media (max-width: toEm(820.98)){
+				padding: 77px 60px 60px;
+			}
+			@media (max-width:toEm($mobileSmall)){
+				padding: 77px 20px 30px;
+			}
+		}
+
+		// .popup-form__wrapper
+		&__wrapper {
+			transition: opacity .3s ease, visibility .3s ease;
+			// opacity: 0;
+			// pointer-events: none;
+			.--form-sent & {
+				opacity: 0;
+				pointer-events: none;
+				visibility: hidden;
+			}
+		}
+
+		// .popup-form__head
+		&__head {
+			text-align: center;
+			margin-bottom: 40px;
+			@media (min-width:toEm(820.98)){
+				text-align: left;
+				margin-bottom: 70px;
+			}
+		}
+
+		// .popup-form__title
+		&__title {
+			font-weight: 600;
+			font-size: 34px;
+			letter-spacing: 0.04em;
+			text-transform: uppercase;
+			margin-bottom: 6px;
+			@media (min-width:toEm($mobileSmall)){
+				margin-bottom: 24px;
+				font-size: 40px;
+			}
+		}
+
+		// .popup-form__subtitle
+		&__subtitle {
+				font-size: 24px;
+				line-height: 1.2;
+				letter-spacing: 0.01em;
+		}
+
+		// .popup-form__form
+		&__form {
+			&.--sending {
+				.popup-form__send {
+					pointer-events: none;
+					opacity: 0.5;
+				}
+			}
+		}
+
+		// .popup-form__items
+		&__items {
+			display: grid;
+			gap: 28px;
+			margin-bottom: 44px;
+			@media (min-width:toEm(600.98)){
+				gap: 20px;
+				grid-template-columns: repeat(3,1fr);
+			}
+		}
+
+		// .popup-form__item
+		&__item {
+			textarea {
+				padding: 10px 10px 10px 0;
+			}
+		}
+
+		// .popup-form__label
+		&__label {
+			font-size: 16px;
+			line-height: 1.2;
+			color: #000;
+		}
+
+		&__send {
+			margin-top: 73px;
+			min-width: 184px;
+			margin-inline: auto;
+			@media (min-width:toEm(820.98)){
+				margin-inline: 0;
+			}
+			@media (min-width:toEm($mobileSmall)){
+				min-width: 250px;
+			}
+		}
+
+		// .popup-form__msg
+		&__msg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+			transition: opacity .3s ease, visibility .3s ease;
+			.--form-sent & {
+				visibility: visible;
+				opacity: 1;
+			}
+
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			text-align: center;
+
+
+		}
+
+		// .popup-form__msg-t
+		&__msg-t {
+			font-weight: 600;
+			font-size: 50px;
+			line-height: 1;
+			letter-spacing: 0.04em;
+			text-transform: uppercase;
+			text-align: center;
+			margin-bottom: 48px;
+			@media (min-width:toEm($mobileSmall)){
+				 margin-bottom: 26px; 
+			}
+		}
+
+		// .popup-form__msg-subt
+		&__msg-subt {
+			font-weight: 400;
+			font-size: 24px;
+			line-height: 1.2;
+			letter-spacing: 0.01em;
+			text-align: center;
+			margin-inline: auto;
+			max-width: 306px;
+			@media (min-width:toEm($mobileSmall)){
+				font-size: 28px;
+				max-width: 418px;
+			}
+			br {
+				display: block;
+				@media (min-width:toEm($mobileSmall)){
+					 display: none; 
+				}
+			}
+		}
+
+		// .popup-form__img
+		&__img {
+			display: none;
+			@media (min-width:toEm(820.98)){
+				display: block;
+			}
+			img {
+				position: relative;
+				top: -10%;
+				right: -5%;
+			}
+		}
 }

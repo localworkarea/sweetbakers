@@ -9,10 +9,10 @@
 		<link rel="preload" href="./assets/fonts/Manrope-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		<link rel="shortcut icon" href="./assets/img/favicon.ico">
 		<title>Sweetbakers | BoniSano</title>
-		<link rel="modulepreload" crossorigin href="./js/common.min.js?v=1774902209821">
-		<script type="module" crossorigin="" src="./js/main.min.js?v=1774902209821"></script>
-		<link rel="stylesheet" crossorigin="" href="./css/main.min.css?v=1774902209821">
-		<link rel="stylesheet" crossorigin="" href="./css/molinero.min.css?v=1774902209821">
+		<link rel="modulepreload" crossorigin href="./js/common.min.js?v=1775142818646">
+		<script type="module" crossorigin="" src="./js/popup.min.js?v=1775142818646"></script>
+		<link rel="stylesheet" crossorigin="" href="./css/popup.min.css?v=1775142818646">
+		<link rel="stylesheet" crossorigin="" href="./css/notfound.min.css?v=1775142818646">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -33,7 +33,7 @@
 							</a>
 							<ul class="header__list">
 								<li class="header__item">
-									<a href="#" class="header__link" aria-label="open popup with contact form">написати нам</a>
+									<a href="#" data-fls-popup-link="popup-form" class="header__link" aria-label="open popup with contact form">написати нам</a>
 								</li>
 								<li class="header__item">
 									<a href="tel:+380678945678" class="header__link header__link--big" aria-label="call to us">+38 067 894 56 78</a>
@@ -90,7 +90,7 @@
 										<a href="tel:+380678945678" class="manager-header__mail" aria-label="mail">Info@sweetbakers.com</a>
 									</div>
 								</div>
-								<a href="#" data-fls-button="" class="menu-header__btn btn btn--a" aria-label="open popup contact form">
+								<a href="#" data-fls-popup-link="popup-form" data-fls-button="" class="menu-header__btn btn btn--a" aria-label="open popup contact form">
 									<span>Зв'язатися</span>
 								</a>
 								<ul class="menu-header__social social-header">
@@ -123,8 +123,186 @@
 				</div>
 			</main>
 			<footer data-fls-footer="" class="footer">
-				<div class="footer__container"></div>
+				<div class="footer__container">
+					<div class="footer__head head-footer">
+						<div class="head-footer__logo-wr">
+							<a href="index" class="head-footer__logo">
+								<img src="./assets/img/logos/logo-transp.svg" width="122" heigh="100" alt="Image">
+							</a>
+						</div>
+						<div class="head-footer__title">
+							<p>
+								Формуємо настрій
+								<br>
+								мільйонів споживачів!
+							</p>
+						</div>
+						<div class="head-footer__dwnl">
+							<a href="files/test.pdf" data-fls-button="" class="btn btn--a" target="_blank" aria-label="download document">
+								<span>Завантажити Каталог</span>
+							</a>
+						</div>
+					</div>
+					<div class="footer__contacts contacts-footer">
+						<div class="contacts-footer__title">
+							<p>ЗАЛИШИЛИСЬ ПИТАННЯ?</p>
+						</div>
+						<div class="contacts-footer__block">
+							<div class="contacts-footer__img">
+								<picture>
+									<img class="ibg" width="255" heigh="255" alt="Image" src="./assets/img/team/manager.webp">
+								</picture>
+							</div>
+							<div class="contacts-footer__body">
+								<div class="contacts-footer__top">
+									<div class="contacts-footer__name">
+										<p>
+											Ольга
+											<br>
+											Остапенко
+										</p>
+									</div>
+									<div class="contacts-footer__position">
+										<p>Ваш менеджер</p>
+									</div>
+								</div>
+								<a href="tel:+380678945678" class="contacts-footer__phone" aria-label="phone">+38(067)-894-56-78</a>
+								<a href="mailto:Info@sweetbakers.com" class="contacts-footer__mail" aria-label="phone">Info@sweetbakers.com</a>
+							</div>
+						</div>
+						<div class="contacts-footer__btn">
+							<a href="#" data-fls-popup-link="popup-form" data-fls-button="" class="btn btn--a" aria-label="open popup">
+								<span>Зв'язатися</span>
+							</a>
+						</div>
+					</div>
+					<div class="footer__address address-footer">
+						<address class="address-footer__address">
+							<div class="address-footer__title">
+								<p>Головний офіс:</p>
+							</div>
+							<a href="#" class="address-footer__maps" aria-label="google maps">
+								вул. Павла Вірського, 1, Дніпро,
+								<br>
+								Дніпропетровська область, Украина, 49000
+							</a>
+						</address>
+						<ul class="address-footer__list">
+							<li class="address-footer__item">
+								<a href="#" class="address-footer__link" aria-label="link">
+									<div class="address-footer__link-i">
+										<img src="./assets/img/icons/tt.svg" width="28" heigh="28" alt="Image">
+									</div>
+									<span>TikTok</span>
+								</a>
+							</li>
+							<li class="address-footer__item">
+								<a href="#" class="address-footer__link" aria-label="link">
+									<div class="address-footer__link-i">
+										<img src="./assets/img/icons/fb-2.svg" width="28" heigh="28" alt="Image">
+									</div>
+									<span>facebook</span>
+								</a>
+							</li>
+							<li class="address-footer__item">
+								<a href="#" class="address-footer__link" aria-label="link">
+									<div class="address-footer__link-i">
+										<img src="./assets/img/icons/insta-2.svg" width="28" heigh="28" alt="Image">
+									</div>
+									<span>instagram</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
 			</footer>
+		</div>
+		<div data-fls-popup="popup-form" data-lenis-prevent="false" aria-hidden="true" class="popup-form">
+			<div data-fls-popup-wrapper="">
+				<div data-fls-popup-body="">
+					<button data-fls-popup-close="" type="button" class="popup__close" aria-label="close popup">
+						<svg class="popup__close-i-1" width="64" height="64" viewbox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<rect x="0.5" y="0.5" width="63" height="63" rx="31.5" stroke="#633510"></rect>
+							<path d="M47 47L17 17" stroke="#633510" stroke-linecap="round" stroke-linejoin="round"></path>
+							<path d="M47 17L17 47" stroke="#633510" stroke-linecap="round" stroke-linejoin="round"></path>
+						</svg>
+						<svg class="popup__close-i-2" width="29" height="28" viewbox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M1.70691 26.7225L14.2429 14.1865L26.7788 26.7225C27.1693 27.113 27.8025 27.113 28.193 26.7225C28.5825 26.3323 28.5838 25.699 28.193 25.3083L15.6571 12.7723L19.3652 9.06416C19.7538 8.67427 19.7554 8.04149 19.3646 7.65064C18.974 7.26075 18.3411 7.26124 17.951 7.64995L14.2429 11.3581L3.17844 0.293688C2.788 -0.0961781 2.15455 -0.0959326 1.76423 0.293688C1.37353 0.684382 1.37457 1.31767 1.76423 1.7079L12.8287 12.7723L0.2927 25.3083C-0.098013 25.699 -0.0968585 26.3323 0.2927 26.7225C0.683224 27.113 1.31639 27.113 1.70691 26.7225ZM23.7791 4.65027L26.7229 1.70652C27.1118 1.31642 27.1127 0.683648 26.7222 0.292997C26.3315 -0.0977053 25.6987 -0.0965573 25.3087 0.292307L22.3649 3.23605C21.9744 3.62658 21.9744 4.25974 22.3649 4.65027C22.7554 5.04064 23.3886 5.04082 23.7791 4.65027Z" fill="#633510"></path>
+						</svg>
+					</button>
+					<div data-fls-popup-content="" class="popup-form__content">
+						<div class="popup-form__body">
+							<div class="popup-form__wrapper">
+								<div class="popup-form__head">
+									<h2 class="popup-form__title">Надіслати запит</h2>
+									<div class="popup-form__subtitle">
+										<p>Ми раді майбутній співпраці!</p>
+									</div>
+								</div>
+								<form class="popup-form__form" data-fls-form-novalidate="" data-fls-form="dev" action="#" method="POST">
+									<div class="popup-form__items">
+										<div class="popup-form__item">
+											<label for="f1" class="popup-form__label">Ваше імʼя:</label>
+											<input id="f1" type="text" name="form[name]" class="input">
+										</div>
+										<div class="popup-form__item">
+											<label for="f2" class="popup-form__label">E-mail:</label>
+											<input id="f2" type="email" name="form[email]" class="input" required>
+										</div>
+										<div class="popup-form__item">
+											<label for="f3" class="popup-form__label">Телефон:</label>
+											<input id="f3" type="tel" name="form[tel]" class="input">
+										</div>
+									</div>
+									<div class="popup-form__item">
+										<label for="f4" class="popup-form__label">Ваше повідомлення:</label>
+										<textarea id="f4" name="form[message]" class="input"></textarea>
+									</div>
+									<button type="submit" data-fls-button="" class="popup-form__send btn btn--a">
+										<span>Надіслати</span>
+									</button>
+								</form>
+							</div>
+							<div class="popup-form__msg">
+								<div class="popup-form__msg-t">
+									<p>
+										ВАШ запит
+										<br>
+										ПРИЙНЯТо!
+									</p>
+								</div>
+								<div class="popup-form__msg-subt">
+									<p>
+										Дякую за ваше звернення та зацікавленість.
+										<br>
+										<br>
+										Ми зв'яжемося з вами найближчим часом
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="popup-form__img">
+							<picture>
+								<source media="(max-width: 500px)" srcset="./assets/img/elements/popup-form-500.webp" type="image/webp">
+								<img class="ibg ibg--cn" width="660" heigh="778" alt="Image" src="./assets/img/elements/popup-form.webp">
+							</picture>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div data-fls-popup="popup-product" data-lenis-prevent="false" aria-hidden="true" class="popup">
+			<div data-fls-popup-wrapper="" class="popup__wrapper">
+				<div data-fls-popup-body="" class="popup__body">
+					<button data-fls-popup-close="" type="button" class="popup__close">
+						<svg width="23" height="23" viewbox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path opacity="0.850056" d="M1.73333 1.48883L21.5469 21.0288" stroke="#979797" stroke-linecap="square"></path>
+							<path opacity="0.850056" d="M21.2667 1.48883L1.45309 21.0288" stroke="#979797" stroke-linecap="square"></path>
+						</svg>
+					</button>
+					<div data-fls-popup-content="" class="popup__text"><!-- Контент --></div>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

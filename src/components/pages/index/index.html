@@ -56,13 +56,13 @@
       </div>
     </div>
     <div class="home-hero__nav __container">
-      <button type="button" class="home-hero__btn swiper-button-prev">
+      <button type="button" class="home-hero__btn swiper-button-prev swiper-button" aria-label="prev">
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M26.5 29L21.5 24L26.5 19" stroke="#633510" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
 
       </button>
-      <button type="button" class="home-hero__btn swiper-button-next">
+      <button type="button" class="home-hero__btn swiper-button-next swiper-button" aria-label="next">
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M21.5 19L26.5 24L21.5 29" stroke="#633510" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
@@ -70,11 +70,470 @@
     </div>
   </div>
   <div class="home-hero__footer">
-    <a href="@files/test.pdf" class="home-hero__dwnl" target="_blank">
+    <a href="@files/test.pdf" class="home-hero__dwnl" target="_blank" aria-label="download document">
       <span>Завантажити<br> каталог</span>
     </a>
   </div>
 </section>
-<div class="text__container">
-  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat repudiandae commodi, odit excepturi temporibus delectus numquam id hic qui at consequatur aperiam ratione officiis sed odio libero veniam blanditiis tenetur.</p>
+
+<section class="home-brands">
+  <div class="home-brands__container">
+    <div class="home-brands__head">
+      <h2 class="home-brands__title title">
+        НАШІ БРЕНДИ
+      </h2>
+      <div class="home-brands__subtitle subtitle">
+        <p>Наші бренди — це різні історії та емоції, які обʼєднує спільна цінність: якість, довіра та натхнення для наших клієнтів.</p>
+      </div>
+    </div>
+  </div>
+  <div class="home-brands__body">
+    <div class="home-brands__nav __container">
+      <button type="button" class="home-brands__btn swiper-button-prev swiper-button" aria-label="prev">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M26.5 29L21.5 24L26.5 19" stroke="#633510" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+      <button type="button" class="home-brands__btn swiper-button-next swiper-button" aria-label="next">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21.5 19L26.5 24L21.5 29" stroke="#633510" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
+    <div class="home-brands__container">
+      <div data-fls-slider class="home-brands__slider swiper">
+        <div class="home-brands__wrapper swiper-wrapper">
+          <div class="home-brands__slide swiper-slide">
+            <a href="#" class="home-brands__slide-body" aria-label="link">
+              <div class="home-brands__brand">
+                <img class="home-brands__mask" data-img-ignore loading="lazy" src="@img/brands/brand-mask-1.svg" width="375" height="784" alt="Image">
+                <img data-img-ignore loading="lazy" class="home-brands__img" src="@img/brands/brand-1.webp" width="375" height="784" alt="Image">
+              </div>
+              <div class="home-brands__name">
+                <p>Elly</p>
+              </div>
+            </a>
+          </div>
+          <div class="home-brands__slide swiper-slide">
+            <a href="#" class="home-brands__slide-body" aria-label="link">
+              <div class="home-brands__brand">
+                <img class="home-brands__mask" data-img-ignore loading="lazy" src="@img/brands/brand-mask-2.svg" width="375" height="784" alt="Image">
+                <img data-img-ignore loading="lazy" class="home-brands__img" src="@img/brands/brand-2.webp" width="375" height="784" alt="Image">
+              </div>
+              <div class="home-brands__name">
+                <p>Molinero</p>
+              </div>
+            </a>
+          </div>
+          <div class="home-brands__slide swiper-slide">
+            <a href="#" class="home-brands__slide-body" aria-label="link">
+              <div class="home-brands__brand">
+                <img class="home-brands__mask" data-img-ignore loading="lazy" src="@img/brands/brand-mask-3.svg" width="375" height="784" alt="Image">
+                <img data-img-ignore loading="lazy" class="home-brands__img" src="@img/brands/brand-3.webp" width="375" height="784" alt="Image">
+              </div>
+              <div class="home-brands__name">
+                <p>BoniSano</p>
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="home-brands__dwnl-body __container">
+    <a href="@files/test.pdf" data-fls-button class="home-brands__dwnl btn btn--a" target="_blank" aria-label="download document">
+      <span>Каталог</span>
+    </a>
+  </div>
+</section>
+
+<section class="home-banner">
+  <div data-fls-slider class="home-banner__slider swiper">
+    <div class="home-banner__wrapper swiper-wrapper">
+      <div class="home-banner__slide swiper-slide">
+        <a href="#" class="home-banner__link" aria-label="link">
+          <picture>
+            <!-- изображение отображается только для мобилок (вертикальное) -->
+            <source media="(max-width: 30.186em)" srcset="@img/ban-slider/boni_sano_mob.webp" type="image/webp">
+            <!-- изображение, отображается только для ПК (горизонтальное) -->
+            <img data-img-ignore loading="lazy" class="ibg" src="@img/ban-slider/boni_sano_pc.webp" width="1440" height="77" alt="Image">
+          </picture>
+        </a>
+      </div>
+      <div class="home-banner__slide swiper-slide">
+        <a href="#" class="home-banner__link" aria-label="link">
+          <picture>
+            <!-- изображение отображается только для мобилок (вертикальное) -->
+            <source media="(max-width: 30.186em)" srcset="@img/ban-slider/elly_2_mob.webp" type="image/webp">
+            <!-- изображение, отображается только для ПК (горизонтальное) -->
+            <img data-img-ignore loading="lazy" class="ibg" src="@img/ban-slider/elly_2_pc.webp" width="1440" height="77" alt="Image">
+          </picture>
+        </a>
+      </div>
+    </div>
+    <div class="home-banner__nav __container">
+      <button type="button" class="home-banner__btn swiper-button-prev swiper-button" aria-label="prev">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M26.5 29L21.5 24L26.5 19" stroke="#633510" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+      <button type="button" class="home-banner__btn swiper-button-next swiper-button" aria-label="next">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21.5 19L26.5 24L21.5 29" stroke="#633510" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<div class="common-bg bg--a">
+
+  <section class="home-box">
+    <div class="home-box__container">
+      <div class="home-box__body">
+        <div class="home-box__head">
+          <h2 class="home-box__title title">
+            SAMPLE BOX
+          </h2>
+          <div class="home-box__subtitle subtitle">
+            <p>
+              Скуштуйте асортимент<br>
+              і оберіть своє!
+            </p>
+          </div>
+        </div>
+        <div class="home-box__bg">
+          <picture>
+            <source media="(max-width: 30.186em)" srcset="@img/box/box-mob.webp" type="image/webp">
+            <img data-img-ignore loading="lazy" src="@img/box/box-pc.webp" width="798" heigh="487" alt="Image">
+          </picture>
+        </div>
+        <div class="home-box__btn">
+          <a href="#" data-fls-popup-link="popup-form" data-fls-button class="home-box__link btn btn--a" aria-label="open form">
+            <span>Замовити</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-about">
+    <div class="home-about__container">
+      <div class="home-about__head">
+        <h2 class="home-about__title title">ПРО НАС</h2>
+        <div class="home-about__subtitle subtitle">
+          <p>Sweet Bakers — це більше, ніж виробництво кондитерських виробів.
+            Це команда, що поєднує досвід, інновації та пристрасть до солодкої справи. </p>
+        </div>
+      </div>
+      <div class="home-marquee">
+        <div class="home-marquee__body" data-fls-marquee data-fls-marquee-space="0" data-fls-marquee-speed="300" data-fls-marquee-direction="left" data-fls-marquee-drag>
+          <div class="home-marquee__item">
+            <img class="ibg" data-img-ignore loading="lazy" src="@img/about/about-1.webp" width="342" height="225" alt="Image">
+          </div>
+          <div class="home-marquee__item">
+            <img class="ibg" data-img-ignore loading="lazy" src="@img/about/about-2.webp" width="342" height="225" alt="Image">
+          </div>
+          <div class="home-marquee__item">
+            <img class="ibg" data-img-ignore loading="lazy" src="@img/about/about-3.webp" width="342" height="225" alt="Image">
+          </div>
+          <div class="home-marquee__item">
+            <img class="ibg" data-img-ignore loading="lazy" src="@img/about/about-4.webp" width="342" height="225" alt="Image">
+          </div>
+          <div class="home-marquee__item">
+            <img class="ibg" data-img-ignore loading="lazy" src="@img/about/about-1.webp" width="342" height="225" alt="Image">
+          </div>
+          <div class="home-marquee__item">
+            <img class="ibg" data-img-ignore loading="lazy" src="@img/about/about-2.webp" width="342" height="225" alt="Image">
+          </div>
+          <div class="home-marquee__item">
+            <img class="ibg" data-img-ignore loading="lazy" src="@img/about/about-3.webp" width="342" height="225" alt="Image">
+          </div>
+          <div class="home-marquee__item">
+            <img class="ibg" data-img-ignore loading="lazy" src="@img/about/about-4.webp" width="342" height="225" alt="Image">
+          </div>
+        </div>
+      </div>
+      <ul class="home-about__list">
+        <li class="home-about__item">
+          <div class="home-about__item-t">
+            <p>Розуміння ринку<br>
+              та споживачів</p>
+          </div>
+          <div class="home-about__item-subt">
+            <p>Ми розуміємо національний ринок і створюємо продукти під актуальні тренди. Досліджуємо смаки споживачів і пропонуємо нові рішення для рітейлу та дистрибуції.</p>
+          </div>
+        </li>
+        <li class="home-about__item">
+          <div class="home-about__item-t">
+            <p>Sweet Bakers -<br>
+              це надійний партнер </p>
+          </div>
+          <div class="home-about__item-subt">
+            <p>Ми розуміємо національний ринок і створюємо продукти під актуальні тренди. Досліджуємо смаки споживачів і пропонуємо нові рішення для рітейлу та дистрибуції.</p>
+          </div>
+        </li>
+        <li class="home-about__item">
+          <div class="home-about__item-t">
+            <p>Місія компанії -<br>
+              дарувати цікаве</p>
+          </div>
+          <div class="home-about__item-subt">
+            <p>Ми розуміємо національний ринок і створюємо продукти під актуальні тренди. Досліджуємо смаки споживачів і пропонуємо нові рішення для рітейлу та дистрибуції.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+
+  <section class="home-cta-a">
+    <div class="home-cta-a__container">
+      <h2 class="home-cta-a__title title">
+        СТВОРЮЄМО СОЛОДОЩІ, <span>ЯКІ ПРОДАЮТЬ СЕБЕ САМІ!</span>
+      </h2>
+      <a href="#" data-fls-popup-link="popup-form" data-fls-button class="home-cta-a__btn btn btn--a" aria-label="open form">
+        <span>Написати нам</span>
+      </a>
+    </div>
+  </section>
+
+  <div class="common-bg-circle"></div>
+
+  <section class="home-partnership">
+    <div class="home-partnership__container">
+      <div class="home-partnership__head">
+        <h2 class="home-partnership__title title">
+          СПІВПРАЦЯ
+        </h2>
+        <div class="home-partnership__subtitle subtitle">
+          <p>
+            Sweet Bakers відкриті до різних форматів співпраці та завжди готові
+            знаходити нові точки зростання разом із партнерами
+          </p>
+        </div>
+      </div>
+      <div class="home-partnership__body">
+        <div class="home-partnership__imgs">
+          <img class="home-partnership__img-sm" data-img-ignore loading="lazy" src="@img/elements/circle-2.webp" width="132" heigh="132" alt="Image">
+          <div class="home-partnership__img-big">
+            <picture>
+              <source media="(max-width: 30.186em)" srcset="@img/elements/chocolates-mb.webp" type="image/webp">
+              <img data-img-ignore loading="lazy" src="@img/elements/chocolates-pc.webp" width="820" heigh="603" alt="Image">
+            </picture>
+          </div>
+        </div>
+        <ul class="home-partnership__list">
+          <li class="home-partnership__item">
+            <div class="home-partnership__t">
+              <p>Виробники</p>
+            </div>
+            <div class="home-partnership__subt">
+              <p>У Вас є сильна ідея для ринку? Ми відкриті до спільних проектів та ко-брендингу.</p>
+            </div>
+            <svg class="home-partnership__svg-a svg--1" width="49" height="81" viewBox="0 0 49 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9.60825 61.4048C9.60825 61.4048 3.26824 73.705 1.69824 76.7451C5.06824 77.3551 18.6783 79.8155 18.6783 79.8155" stroke="#633510" stroke-width="2.25" stroke-miterlimit="10" />
+              <path d="M15.5082 5.98321C17.5682 4.07316 20.0282 2.60319 22.7282 1.81316C30.8782 -0.56691 40.4182 3.41327 44.4682 10.8735C49.4982 20.1338 45.9482 31.7239 40.6982 40.8642C31.8082 56.3347 18.1982 69.045 2.1582 76.8453" stroke="#633510"
+                stroke-width="2.25" stroke-miterlimit="10" />
+            </svg>
+          </li>
+          <li class="home-partnership__item">
+            <div class="home-partnership__t">
+              <p>Рітейл</p>
+            </div>
+            <div class="home-partnership__subt">
+              <p>Готові обговорювати представленість наших брендів і виводитинові продукти на полиці разом з нами</p>
+            </div>
+            <svg class="home-partnership__svg-a svg--2" width="69" height="68" viewBox="0 0 69 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M52.8929 46.1309C52.8929 46.1309 63.9429 54.4515 66.6729 56.5116C63.9029 58.5216 52.7129 66.6515 52.7129 66.6515" stroke="#633510" stroke-width="2.25" stroke-miterlimit="10" />
+              <path
+                d="M25.7425 3.57976C31.7125 2.23972 37.7625 0.889753 43.8825 1.15976C49.9925 1.42977 56.2725 3.50974 60.3625 8.05988C64.4525 12.61 65.7425 19.9102 62.3225 24.9803C59.9225 28.5604 55.5925 30.5403 51.2925 30.8203C46.9925 31.1004 42.7125 29.8405 38.8225 28.0004C32.1925 24.8803 26.2925 20.0505 19.1825 18.2804C12.0725 16.5104 2.87245 19.41 1.34245 26.5702C0.0124483 32.8004 5.01246 38.5409 10.1025 42.371C25.5625 54.0114 45.7925 59.1113 64.9225 56.1912"
+                stroke="#633510" stroke-width="2.25" stroke-miterlimit="10" />
+            </svg>
+          </li>
+          <li class="home-partnership__item">
+            <div class="home-partnership__t">
+              <p>Дистрибуція</p>
+            </div>
+            <div class="home-partnership__subt">
+              <p>Ми відкриті до довгострокового партнерства в регіоні та забезпечимо підтримку, сервіс і макретинг.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-cta-b">
+    <div class="home-cta-b__container">
+      <div class="home-cta-b__body">
+        <h2 class="home-cta-b__title title">
+          ГНУЧКИЙ ПАРТНЕР
+          <span>для тих, хто хоче розвивати ринок солодощів разом!</span>
+        </h2>
+        <a href="#" data-fls-popup-link="popup-form" data-fls-button class="home-cta-b__btn btn btn--a" aria-label="open form">
+          <span>Написати нам</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-cta-c">
+    <div class="home-cta-c__container">
+      <div class="home-cta-c__head">
+        <h2 class="home-cta-c__title title">
+          ЗВ'ЯЖІТЬСЯ З НАМИ!
+        </h2>
+        <div class="home-cta-c__subtitle subtitle">
+          <p>
+            Маєте будь-які запитання?
+          </p>
+        </div>
+        <a href="#" data-fls-popup-link="popup-form" data-fls-button class="home-cta-c__btn btn btn--c" aria-label="open form">
+          <span>Написати нам</span>
+        </a>
+      </div>
+      <div class="home-cta-c__imgs">
+        <img data-img-ignore loading="lazy" src="@img/team/women.webp" width="363" heigh="346" alt="Image">
+      </div>
+    </div>
+  </section>
+
 </div>
+
+<section data-fls-mouse-mouse-wrapper class="home-candy">
+  <div class="home-candy__container">
+    <div class="home-candy__head">
+      <h2 class="home-candy__title title">НАШІ СОЛОДОЩІ</h2>
+      <div class="home-candy__subtitle subtitle">
+        <p>
+          Створені для моментів радості!
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="home-marquee">
+    <div class="home-marquee__body" data-fls-marquee data-fls-marquee-space="0" data-fls-marquee-speed="300" data-fls-marquee-direction="left" data-fls-marquee-drag>
+      <div class="home-marquee__item item-marquee-2">
+        <img class="ibg" data-img-ignore loading="lazy" src="@img/marquee/photo-1.webp" width="307" height="360" alt="Image">
+      </div>
+      <div class="home-marquee__item item-marquee-2">
+        <img class="ibg" data-img-ignore loading="lazy" src="@img/marquee/photo-2.webp" width="307" height="360" alt="Image">
+      </div>
+      <div class="home-marquee__item item-marquee-2">
+        <img class="ibg" data-img-ignore loading="lazy" src="@img/marquee/photo-3.webp" width="307" height="360" alt="Image">
+      </div>
+      <div class="home-marquee__item item-marquee-2">
+        <img class="ibg" data-img-ignore loading="lazy" src="@img/marquee/photo-4.webp" width="307" height="360" alt="Image">
+      </div>
+      <div class="home-marquee__item item-marquee-2">
+        <img class="ibg" data-img-ignore loading="lazy" src="@img/marquee/photo-5.webp" width="307" height="360" alt="Image">
+      </div>
+      <div class="home-marquee__item item-marquee-2">
+        <img class="ibg" data-img-ignore loading="lazy" src="@img/marquee/photo-1.webp" width="307" height="360" alt="Image">
+      </div>
+      <div class="home-marquee__item item-marquee-2">
+        <img class="ibg" data-img-ignore loading="lazy" src="@img/marquee/photo-2.webp" width="307" height="360" alt="Image">
+      </div>
+      <div class="home-marquee__item item-marquee-2">
+        <img class="ibg" data-img-ignore loading="lazy" src="@img/marquee/photo-3.webp" width="307" height="360" alt="Image">
+      </div>
+      <div class="home-marquee__item item-marquee-2">
+        <img class="ibg" data-img-ignore loading="lazy" src="@img/marquee/photo-4.webp" width="307" height="360" alt="Image">
+      </div>
+      <div class="home-marquee__item item-marquee-2">
+        <img class="ibg" data-img-ignore loading="lazy" src="@img/marquee/photo-5.webp" width="307" height="360" alt="Image">
+      </div>
+
+    </div>
+  </div>
+  <div class="home-candy__item item--1">
+    <span data-fls-mouse data-fls-mouse-dxr></span>
+  </div>
+  <div class="home-candy__item item--2">
+    <span data-fls-mouse data-fls-mouse-dyr></span>
+  </div>
+  <div class="home-candy__item item--3">
+    <span data-fls-mouse data-fls-mouse-dxr></span>
+  </div>
+  <div class="home-candy__item item--4">
+    <span data-fls-mouse data-fls-mouse-dyr></span>
+  </div>
+  <div class="home-candy__item item--5">
+    <span data-fls-mouse data-fls-mouse-dxr></span>
+  </div>
+
+</section>
+
+<section class="home-partners">
+  <div class="home-partners__top">
+    <div class="__container">
+      <div class="home-partners__body ">
+        <div class="home-partners__head">
+          <h2 class="home-partners__title title">
+            наші<br> партнери
+          </h2>
+          <div class="home-partners__subtitle subtitle">
+            <p>Нам довіряють провідні рітейли та дистрибютори, обираючи нашу продукцію для успішної співпраці!</p>
+          </div>
+          <div data-fls-dynamic=".home-partners__container,480.98,last" class="home-partners__btn-wr">
+            <a href="#" data-fls-popup-link="popup-form" data-fls-button class="home-partners__btn btn btn--a" aria-label="open form">
+              <span>Доєднатися</span>
+            </a>
+          </div>
+        </div>
+        <div class="home-partners__img">
+          <picture>
+            <source media="(max-width: 30.186em)" srcset="@img/partners/partners-img-mb.webp" type="image/webp">
+            <img data-img-ignore loading="lazy" src="@img/partners/partners-img-pc.webp" width="865" heigh="477" alt="Image">
+          </picture>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="home-partners__bottom">
+    <div class="home-partners__container">
+      <div class="partners-marquee">
+        <div class="partners-marquee__body" data-fls-marquee data-fls-marquee-media="768,max" data-fls-marquee-space="0" data-fls-marquee-speed="200" data-fls-marquee-direction="left" data-fls-marquee-drag>
+          <div class="partners-marquee__item ">
+           <img class="ibg ibg--cn" loading="lazy"src="@img/logos/logo_partners-01.svg" width="200" height="68" alt="logo">
+          </div>
+          <div class="partners-marquee__item ">
+           <img class="ibg ibg--cn" loading="lazy"src="@img/logos/logo_partners-02.svg" width="200" height="68" alt="logo">
+          </div>
+          <div class="partners-marquee__item ">
+           <img class="ibg ibg--cn" loading="lazy"src="@img/logos/logo_partners-03.svg" width="200" height="68" alt="logo">
+          </div>
+          <div class="partners-marquee__item ">
+           <img class="ibg ibg--cn" loading="lazy"src="@img/logos/logo_partners-04.svg" width="200" height="68" alt="logo">
+          </div>
+          <div class="partners-marquee__item ">
+           <img class="ibg ibg--cn" loading="lazy"src="@img/logos/logo_partners-05.svg" width="200" height="68" alt="logo">
+          </div>
+          <div class="partners-marquee__item ">
+           <img class="ibg ibg--cn" loading="lazy"src="@img/logos/logo_partners-06.svg" width="200" height="68" alt="logo">
+          </div>
+          <div class="partners-marquee__item ">
+           <img class="ibg ibg--cn" loading="lazy"src="@img/logos/logo_partners-07.svg" width="200" height="68" alt="logo">
+          </div>
+          <div class="partners-marquee__item ">
+           <img class="ibg ibg--cn" loading="lazy"src="@img/logos/logo_partners-08.svg" width="200" height="68" alt="logo">
+          </div>
+          <div class="partners-marquee__item ">
+           <img class="ibg ibg--cn" loading="lazy"src="@img/logos/logo_partners-09.svg" width="200" height="68" alt="logo">
+          </div>
+          <div class="partners-marquee__item ">
+           <img class="ibg ibg--cn" loading="lazy"src="@img/logos/logo_partners-10.svg" width="200" height="68" alt="logo">
+          </div>
+          <div class="partners-marquee__item ">
+           <img class="ibg ibg--cn" loading="lazy"src="@img/logos/logo_partners-11.svg" width="200" height="68" alt="logo">
+          </div>
+          <div class="partners-marquee__item ">
+           <img class="ibg ibg--cn" loading="lazy"src="@img/logos/logo_partners-12.svg" width="200" height="68" alt="logo">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

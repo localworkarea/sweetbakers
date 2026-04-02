@@ -1,261 +1,777 @@
-
 import { FLS } from "@js/common/functions.js";
 
-import "./marquee.scss";
+// import "./marquee.scss";
+
+
+
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   marquee();
+// });
+// const marquee = () => {
+//   const $marqueeArray = document.querySelectorAll("[data-fls-marquee]");
+//   if (!$marqueeArray.length) return;
+//   const getElSize = ($el) => $el?.offsetWidth || 0;
+//   $marqueeArray.forEach(($wrapper) => {
+//     if ($wrapper.dataset.flsMarqueeInit === "true") return;
+//     $wrapper.dataset.flsMarqueeInit = "true";
+//     const ATTR = {
+//       inner: "data-fls-marquee-inner",
+//       item: "data-fls-marquee-item"
+//     };
+//     let $marqueeInner = null;
+//     let $items = null;
+//     const dataMarqueeSpace = parseFloat($wrapper.getAttribute("data-fls-marquee-space"));
+//     const speed = parseFloat($wrapper.getAttribute("data-fls-marquee-speed")) / 10 || 100;
+//     const direction = $wrapper.getAttribute("data-fls-marquee-direction");
+//     const isReverse = direction === "right";
+//     const isDraggable = $wrapper.hasAttribute("data-fls-marquee-drag");
+//     let currentX = 0;
+//     let lastFrameTime = performance.now();
+//     let firstScreenVisibleSize = 0;
+//     let isDragging = false;
+//     let isPaused = false;
+//     let startX = 0;
+//     let startY = 0;
+//     let dragStartX = 0;
+//     let velocity = 0;
+//     let cacheArray = [];
+//     let rafId = null;
+//     let onPointerDown, onPointerMove, onPointerUp, onMouseLeave;
+//     const buildStructure = () => {
+//       const $existingInner = $wrapper.querySelector(`[${ATTR.inner}]`);
+//       if ($existingInner) {
+//         $marqueeInner = $existingInner;
+//         $items = $marqueeInner.querySelectorAll(`[${ATTR.item}]`);
+//         return !!$items.length;
+//       }
+//       const $children = Array.from($wrapper.children);
+//       if (!$children.length) return false;
+//       $children.forEach(($el) => $el.setAttribute(ATTR.item, ""));
+//       $wrapper.innerHTML = `<div ${ATTR.inner}>${$wrapper.innerHTML}</div>`;
+//       $marqueeInner = $wrapper.querySelector(`[${ATTR.inner}]`);
+//       $items = $wrapper.querySelectorAll(`[${ATTR.item}]`);
+//       return !!$marqueeInner && !!$items.length;
+//     };
+//     if (!buildStructure()) return;
+//     const itemMargin = parseFloat(getComputedStyle($items[0]).getPropertyValue("margin-right")) || 0;
+//     const spaceBetween = !isNaN(itemMargin) ? itemMargin : !isNaN(dataMarqueeSpace) ? dataMarqueeSpace : 30;
+//     const addDuplicateElements = () => {
+//       const parentWidth = getElSize($wrapper);
+//       if (parentWidth <= 0) return false;
+//       let sumSize = 0;
+//       firstScreenVisibleSize = 0;
+//       let $children = Array.from($marqueeInner.children);
+//       if (!cacheArray.length) {
+//         cacheArray = $children;
+//       } else {
+//         $children = [...cacheArray];
+//       }
+//       $marqueeInner.style.display = "flex";
+//       $marqueeInner.innerHTML = "";
+//       $children.slice().reverse().forEach(($item) => {
+//         const $clone = $item.cloneNode(true);
+//         $clone.style.marginRight = `${spaceBetween}px`;
+//         $clone.style.flexShrink = 0;
+//         $marqueeInner.insertBefore($clone, $marqueeInner.firstChild);
+//       });
+//       $children.forEach(($item) => {
+//         $item.style.marginRight = `${spaceBetween}px`;
+//         $item.style.flexShrink = 0;
+//         $marqueeInner.append($item);
+//         const size = getElSize($item);
+//         if (size <= 0) return;
+//         sumSize += size + spaceBetween;
+//         firstScreenVisibleSize += size + spaceBetween;
+//       });
+//       if (firstScreenVisibleSize <= 0) {
+//         $marqueeInner.innerHTML = "";
+//         cacheArray.forEach((n) => {
+//           n.style.marginRight = `${spaceBetween}px`;
+//           n.style.flexShrink = 0;
+//           $marqueeInner.append(n);
+//         });
+//         return false;
+//       }
+//       const targetSize = parentWidth * 2 + firstScreenVisibleSize;
+//       let index = 0;
+//       let safety = 0;
+//       while (sumSize < targetSize && $children.length > 0) {
+//         if (!$children[index]) index = 0;
+//         const $clone = $children[index].cloneNode(true);
+//         $clone.style.marginRight = `${spaceBetween}px`;
+//         $clone.style.flexShrink = 0;
+//         $marqueeInner.appendChild($clone);
+//         const size = getElSize($clone);
+//         if (size <= 0) {
+//           if (++safety > 2e3) break;
+//           index++;
+//           continue;
+//         }
+//         sumSize += size + spaceBetween;
+//         index++;
+//         if (++safety > 2e3) break;
+//       }
+//       return true;
+//     };
+//     const render = () => {
+//       const now2 = performance.now();
+//       const delta = now2 - lastFrameTime;
+//       lastFrameTime = now2;
+//       const easing = 0.05;
+//       const maxSpeed = (isReverse ? 1 : -1) * (speed / 1e3);
+//       const targetSpeed = isDragging || isPaused ? 0 : maxSpeed;
+//       velocity += (targetSpeed - velocity) * easing;
+//       currentX += velocity * delta;
+//       if (currentX <= -firstScreenVisibleSize * 2) {
+//         currentX += firstScreenVisibleSize;
+//       }
+//       if (currentX >= -firstScreenVisibleSize) {
+//         currentX -= firstScreenVisibleSize;
+//       }
+//       $marqueeInner.style.transform = `translateX(${currentX}px)`;
+//       rafId = requestAnimationFrame(render);
+//     };
+//     const initDrag = () => {
+//       $marqueeInner.style.cursor = isDraggable ? "grab" : "";
+//       if (isDraggable) $marqueeInner.style.touchAction = "pan-y";
+//       if (!isDraggable) return;
+//       const getPointerX = (e) => e.type.startsWith("touch") ? e.touches[0].clientX : e.clientX;
+//       const getPointerY = (e) => e.type.startsWith("touch") ? e.touches[0].clientY : e.clientY;
+//       let isPointerDown = false;
+//       let lockAxis = null;
+//       const moveThreshold = 6;
+//       const angleRatio = 1.2;
+//       let dragStartTime = 0;
+//       onPointerDown = (e) => {
+//         isPointerDown = true;
+//         isDragging = false;
+//         lockAxis = null;
+//         startX = getPointerX(e);
+//         startY = getPointerY(e);
+//         dragStartX = currentX;
+//         dragStartTime = performance.now();
+//         if (e.type === "mousedown") e.preventDefault();
+//         $marqueeInner.style.cursor = "grabbing";
+//         window.addEventListener("mousemove", onPointerMove, { passive: false });
+//         window.addEventListener("mouseup", onPointerUp, { passive: true });
+//         window.addEventListener("touchmove", onPointerMove, { passive: false });
+//         window.addEventListener("touchend", onPointerUp, { passive: true });
+//         window.addEventListener("touchcancel", onPointerUp, { passive: true });
+//       };
+//       onPointerMove = (e) => {
+//         if (!isPointerDown) return;
+//         const x = getPointerX(e);
+//         const y = getPointerY(e);
+//         const dx = x - startX;
+//         const dy = y - startY;
+//         const adx = Math.abs(dx);
+//         const ady = Math.abs(dy);
+//         if (!lockAxis) {
+//           if (adx < moveThreshold && ady < moveThreshold) return;
+//           if (adx > ady * angleRatio) {
+//             lockAxis = "x";
+//             isDragging = true;
+//             isPaused = true;
+//             dragStartX = currentX;
+//             startX = x;
+//             startY = y;
+//           } else if (ady > adx * angleRatio) {
+//             lockAxis = "y";
+//           } else {
+//             return;
+//           }
+//         }
+//         if (lockAxis === "y") {
+//           return;
+//         }
+//         if (e.cancelable) e.preventDefault();
+//         const delta = x - startX;
+//         currentX = dragStartX + delta;
+//       };
+//       onPointerUp = () => {
+//         if (isDragging) {
+//           const dragDistance = currentX - dragStartX;
+//           const dragDuration = Math.max(performance.now() - dragStartTime, 16);
+//           const rawVelocity = dragDistance / dragDuration;
+//           const maxInertia = 1.5;
+//           const minThreshold = 0.1;
+//           velocity = Math.abs(rawVelocity) > minThreshold ? Math.max(-maxInertia, Math.min(maxInertia, rawVelocity)) : 0;
+//         }
+//         isPointerDown = false;
+//         isDragging = false;
+//         lockAxis = null;
+//         isPaused = false;
+//         $marqueeInner.style.cursor = "grab";
+//         window.removeEventListener("mousemove", onPointerMove);
+//         window.removeEventListener("mouseup", onPointerUp);
+//         window.removeEventListener("touchmove", onPointerMove);
+//         window.removeEventListener("touchend", onPointerUp);
+//         window.removeEventListener("touchcancel", onPointerUp);
+//       };
+//       onMouseLeave = () => {
+//         if (document.pointerLockElement) return;
+//         if (!isPointerDown) return;
+//         onPointerUp();
+//       };
+//       $marqueeInner.addEventListener("mousedown", onPointerDown);
+//       $marqueeInner.addEventListener("touchstart", onPointerDown, { passive: true });
+//       $marqueeInner.addEventListener("mouseleave", onMouseLeave);
+//     };
+//     const destroy = () => {
+//       cancelAnimationFrame(rafId);
+//       rafId = null;
+//       if ($marqueeInner) {
+//         $marqueeInner.style.cursor = "";
+//         $marqueeInner.style.touchAction = "";
+//         $marqueeInner.style.transform = "";
+//         $marqueeInner.removeEventListener("mousedown", onPointerDown);
+//         $marqueeInner.removeEventListener("touchstart", onPointerDown);
+//         $marqueeInner.removeEventListener("mouseleave", onMouseLeave);
+//       }
+//       window.removeEventListener("mousemove", onPointerMove);
+//       window.removeEventListener("mouseup", onPointerUp);
+//       window.removeEventListener("touchmove", onPointerMove);
+//       window.removeEventListener("touchend", onPointerUp);
+//       window.removeEventListener("touchcancel", onPointerUp);
+//       delete $wrapper.dataset.flsMarqueeInit;
+//     };
+//     window.addEventListener("beforeunload", destroy);
+//     const init = () => {
+//       let attempts = 0;
+//       const tryInit = () => {
+//         attempts++;
+//         if (!addDuplicateElements()) {
+//           if (attempts < 10) {
+//             requestAnimationFrame(tryInit);
+//             return;
+//           }
+//           firstScreenVisibleSize = Math.max(
+//             1,
+//             Array.from($marqueeInner.children).reduce((acc, n) => acc + getElSize(n) + spaceBetween, 0)
+//           );
+//         }
+//         currentX = 0;
+//         lastFrameTime = performance.now();
+//         initDrag();
+//         if ($wrapper.hasAttribute("data-fls-marquee-pause")) {
+//           $marqueeInner.addEventListener("mouseenter", () => {
+//             if (!isDragging) isPaused = true;
+//           });
+//           $marqueeInner.addEventListener("mouseleave", () => {
+//             isPaused = false;
+//           });
+//         }
+//         rafId = requestAnimationFrame(render);
+//       };
+//       tryInit();
+//     };
+//     init();
+//   });
+// };
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  marquee();
+});
 
 const marquee = () => {
-	const $marqueeArray = document.querySelectorAll("[data-fls-marquee]");
-	const ATTR_NAMES = {
-		wrapper: "data-fls-marquee-wrapper",
-		inner: "data-fls-marquee-inner",
-		item: "data-fls-marquee-item",
-	};
+  const $marqueeArray = document.querySelectorAll("[data-fls-marquee]");
+  if (!$marqueeArray.length) return;
 
-	if (!$marqueeArray.length) return;
+  const getElSize = ($el) => $el?.offsetWidth || 0;
 
-	const { head } = document;
+  const parseMediaAttr = ($wrapper) => {
+    const media = $wrapper.getAttribute("data-fls-marquee-media");
+    if (!media) return null;
 
-	const debounce = (delay, fn) => {
-		let timerId;
-		return (...args) => {
-			if (timerId) {
-				clearTimeout(timerId);
-			}
-			timerId = setTimeout(() => {
-				fn(...args);
-				timerId = null;
-			}, delay);
-		};
-	};
+    const parts = media.split(",").map((item) => item.trim());
+    if (parts.length !== 2) return null;
 
-	const onWindowWidthResize = (cb) => {
-		if (!cb && !isFunction(cb)) return;
+    const value = parseFloat(parts[0]);
+    const type = parts[1];
 
-		let prevWidth = 0;
+    if (isNaN(value) || !["max", "min"].includes(type)) return null;
 
-		const handleResize = () => {
-			const currentWidth = window.innerWidth;
+    return { value, type };
+  };
 
-			if (prevWidth !== currentWidth) {
-				prevWidth = currentWidth;
-				cb();
-			}
-		};
+  const createMediaQueryList = ($wrapper) => {
+    const mediaData = parseMediaAttr($wrapper);
+    if (!mediaData) return null;
 
-		window.addEventListener("resize", debounce(50, handleResize));
+    const query =
+      mediaData.type === "max"
+        ? `(max-width: ${mediaData.value}px)`
+        : `(min-width: ${mediaData.value}px)`;
 
-		handleResize();
-	};
+    return window.matchMedia(query);
+  };
 
-	const buildMarquee = (marqueeNode) => {
-		if (!marqueeNode) return;
 
-		const $marquee = marqueeNode;
-		const $childElements = $marquee.children;
+  const instances = new Map();
 
-		if (!$childElements.length) return;
-		//$marquee.setAttribute(ATTR_NAMES.wrapper, '');
-		Array.from($childElements).forEach(($childItem) => $childItem.setAttribute(ATTR_NAMES.item, ''));
+  const createMarquee = ($wrapper) => {
+    if (instances.has($wrapper)) return;
 
-		const htmlStructure = `<div ${ATTR_NAMES.inner}>${$marquee.innerHTML}</div>`;
-		$marquee.innerHTML = htmlStructure;
-	};
+    const hasValidSizes = () => {
+    if (!$wrapper || !$marqueeInner) return false;
 
-	const getElSize = ($el, isVertical) => {
-		if (isVertical) return $el.offsetHeight;
-		return $el.offsetWidth;
-	};
+    const wrapperWidth = getElSize($wrapper);
+    if (wrapperWidth <= 0) return false;
 
-	$marqueeArray.forEach(($wrapper) => {
-		if (!$wrapper) return;
+    const children = Array.from($marqueeInner.children);
+    if (!children.length) return false;
 
-		buildMarquee($wrapper);
+    const hasRealItemSize = children.some((item) => getElSize(item) > 0);
+    return hasRealItemSize;
+  };
 
-		const $marqueeInner = $wrapper.firstElementChild;
-		let cacheArray = [];
+    const ATTR = {
+      inner: "data-fls-marquee-inner",
+      item: "data-fls-marquee-item",
+    };
 
-		if (!$marqueeInner) return;
+    let $marqueeInner = null;
+    let $items = null;
 
-		const dataMarqueeSpace = parseFloat($wrapper.getAttribute("data-fls-marquee-space"));
-		const $items = $wrapper.querySelectorAll(`[${ATTR_NAMES.item}]`);
-		const speed = parseFloat($wrapper.getAttribute("data-fls-marquee-speed")) / 10 || 100;
-		const isMousePaused = $wrapper.hasAttribute("data-fls-marquee-pause");
-		const direction = $wrapper.getAttribute("data-fls-marquee-direction");
-		const isVertical = direction === "bottom" || direction === "top";
-		const animName = `marqueeAnimation-${Math.floor(Math.random() * 10000000)}`;
-		let spaceBetweenItem = parseFloat(window.getComputedStyle($items[0])?.getPropertyValue("margin-right"));
-		let spaceBetween = spaceBetweenItem ? spaceBetweenItem : !isNaN(dataMarqueeSpace) ? dataMarqueeSpace : 30;
-		let startPosition = parseFloat($wrapper.getAttribute("data-fls-marquee-start")) || 0;
+    const dataMarqueeSpace = parseFloat($wrapper.getAttribute("data-fls-marquee-space"));
+    const speed = parseFloat($wrapper.getAttribute("data-fls-marquee-speed")) / 10 || 100;
+    const direction = $wrapper.getAttribute("data-fls-marquee-direction");
+    const isReverse = direction === "right";
+    const isDraggable = $wrapper.hasAttribute("data-fls-marquee-drag");
 
-		let sumSize = 0;
-		let firstScreenVisibleSize = 0;
-		let initialSizeElements = 0;
-		let initialElementsLength = $marqueeInner.children.length;
-		let index = 0;
-		let counterDuplicateElements = 0;
+    let currentX = 0;
+    let lastFrameTime = performance.now();
+    let firstScreenVisibleSize = 0;
+    let isDragging = false;
+    let isPaused = false;
+    let startX = 0;
+    let startY = 0;
+    let dragStartX = 0;
+    let velocity = 0;
+    let cacheArray = [];
+    let rafId = null;
 
-		const initEvents = () => {
-			if (startPosition) $marqueeInner.addEventListener("animationiteration", onChangeStartPosition);
+    let onPointerDown = null;
+    let onPointerMove = null;
+    let onPointerUp = null;
+    let onMouseLeave = null;
+    let onMouseEnterPause = null;
+    let onMouseLeavePause = null;
 
-			if (!isMousePaused) return;
-			$marqueeInner.removeEventListener("mouseenter", onChangePaused);
-			$marqueeInner.removeEventListener("mouseleave", onChangePaused);
-			$marqueeInner.addEventListener("mouseenter", onChangePaused);
-			$marqueeInner.addEventListener("mouseleave", onChangePaused);
-		};
+    const buildStructure = () => {
+      const $existingInner = $wrapper.querySelector(`[${ATTR.inner}]`);
 
-		const onChangeStartPosition = () => {
-			startPosition = 0;
-			$marqueeInner.removeEventListener("animationiteration", onChangeStartPosition);
-			onResize();
-		};
+      if ($existingInner) {
+        $marqueeInner = $existingInner;
+        $items = $marqueeInner.querySelectorAll(`[${ATTR.item}]`);
+        return !!$items.length;
+      }
 
-		const setBaseStyles = (firstScreenVisibleSize) => {
-			let baseStyle = "display: flex; flex-wrap: nowrap;";
+      const $children = Array.from($wrapper.children);
+      if (!$children.length) return false;
 
-			if (isVertical) {
-				baseStyle += `
-				flex-direction: column;
-				position: relative;
-				will-change: transform;`;
+      $children.forEach(($el) => $el.setAttribute(ATTR.item, ""));
+      $wrapper.innerHTML = `<div ${ATTR.inner}>${$wrapper.innerHTML}</div>`;
 
-				if (direction === "bottom") {
-					baseStyle += `top: -${firstScreenVisibleSize}px;`;
-				}
-			} else {
-				baseStyle += `
-				position: relative;
-				will-change: transform;`;
+      $marqueeInner = $wrapper.querySelector(`[${ATTR.inner}]`);
+      $items = $wrapper.querySelectorAll(`[${ATTR.item}]`);
 
-				if (direction === "right") {
-					baseStyle += `inset-inline-start: -${firstScreenVisibleSize}px;;`;
-				}
-			}
+      return !!$marqueeInner && !!$items.length;
+    };
 
-			$marqueeInner.style.cssText = baseStyle;
-		};
+    if (!buildStructure()) return;
 
-		const setdirectionAnim = (totalWidth) => {
-			switch (direction) {
-				case "right":
-				case "bottom":
-					return totalWidth;
-				default:
-					return -totalWidth;
-			}
-		};
+    const itemMargin =
+      parseFloat(getComputedStyle($items[0]).getPropertyValue("margin-right")) || 0;
 
-		const animation = () => {
-			const keyFrameCss = `@keyframes ${animName} {
-					 0% {
-						 transform: translate${isVertical ? "Y" : "X"}(${!isVertical && window.stateRtl ? -startPosition : startPosition}%);
-					 }
-					 100% {
-						 transform: translate${isVertical ? "Y" : "X"}(${setdirectionAnim(
-				!isVertical && window.stateRtl ? -firstScreenVisibleSize : firstScreenVisibleSize
-			)}px);
-					 }
-				 }`;
-			const $style = document.createElement("style");
+    const spaceBetween = !isNaN(itemMargin)
+      ? itemMargin
+      : !isNaN(dataMarqueeSpace)
+        ? dataMarqueeSpace
+        : 30;
 
-			$style.classList.add(animName);
-			$style.innerHTML = keyFrameCss;
-			head.append($style);
+    const addDuplicateElements = () => {
+      const parentWidth = getElSize($wrapper);
+      if (parentWidth <= 0) return false;
 
-			$marqueeInner.style.animation = `${animName} ${(firstScreenVisibleSize + (startPosition * firstScreenVisibleSize) / 100) / speed
-				}s infinite linear`;
-		};
+      let sumSize = 0;
+      firstScreenVisibleSize = 0;
 
-		const addDublicateElements = () => {
-			sumSize = firstScreenVisibleSize = initialSizeElements = counterDuplicateElements = index = 0;
+      let $children = Array.from($marqueeInner.children);
 
-			const $parentNodeWidth = getElSize($wrapper, isVertical);
+      if (!cacheArray.length) {
+        cacheArray = $children.map(($item) => $item.cloneNode(true));
+      } else {
+        $children = cacheArray.map(($item) => $item.cloneNode(true));
+      }
 
-			let $childrenEl = Array.from($marqueeInner.children);
+      $marqueeInner.style.display = "flex";
+      $marqueeInner.innerHTML = "";
 
-			if (!$childrenEl.length) return;
+      $children
+        .slice()
+        .reverse()
+        .forEach(($item) => {
+          const $clone = $item.cloneNode(true);
+          $clone.style.marginRight = `${spaceBetween}px`;
+          $clone.style.flexShrink = 0;
+          $marqueeInner.insertBefore($clone, $marqueeInner.firstChild);
+        });
 
-			if (!cacheArray.length) {
-				cacheArray = $childrenEl.map(($item) => $item);
-			} else {
-				$childrenEl = [...cacheArray];
-			}
+      $children.forEach(($item) => {
+        $item.style.marginRight = `${spaceBetween}px`;
+        $item.style.flexShrink = 0;
+        $marqueeInner.append($item);
 
-			$marqueeInner.style.display = "flex";
-			if (isVertical) $marqueeInner.style.flexDirection = "column";
-			$marqueeInner.innerHTML = "";
-			$childrenEl.forEach(($item) => {
-				$marqueeInner.append($item);
-			});
+        const size = getElSize($item);
+        if (size <= 0) return;
 
-			$childrenEl.forEach(($item) => {
-				if (isVertical) {
-					$item.style.marginBottom = `${spaceBetween}px`;
-				} else {
-					$item.style.marginRight = `${spaceBetween}px`;
-					$item.style.flexShrink = 0;
-				}
+        sumSize += size + spaceBetween;
+        firstScreenVisibleSize += size + spaceBetween;
+      });
 
-				const sizeEl = getElSize($item, isVertical);
+      if (firstScreenVisibleSize <= 0) {
+        $marqueeInner.innerHTML = "";
 
-				sumSize += sizeEl + spaceBetween;
-				firstScreenVisibleSize += sizeEl + spaceBetween;
-				initialSizeElements += sizeEl + spaceBetween;
-				counterDuplicateElements += 1;
+        cacheArray.forEach(($item) => {
+          const $clone = $item.cloneNode(true);
+          $clone.style.marginRight = `${spaceBetween}px`;
+          $clone.style.flexShrink = 0;
+          $marqueeInner.append($clone);
+        });
 
-				return sizeEl;
-			});
+        return false;
+      }
 
-			const $multiplyWidth = $parentNodeWidth * 2 + initialSizeElements;
+      const targetSize = parentWidth * 2 + firstScreenVisibleSize;
+      let index = 0;
+      let safety = 0;
 
-			for (; sumSize < $multiplyWidth; index += 1) {
-				if (!$childrenEl[index]) index = 0;
+      while (sumSize < targetSize && $children.length > 0) {
+  if (!$children[index]) index = 0;
 
-				const $cloneNone = $childrenEl[index].cloneNode(true);
-				const $lastElement = $marqueeInner.children[index];
+  const $clone = $children[index].cloneNode(true);
+  $clone.style.marginRight = `${spaceBetween}px`;
+  $clone.style.flexShrink = 0;
+  $marqueeInner.appendChild($clone);
 
-				$marqueeInner.append($cloneNone);
+  const size = getElSize($clone);
 
-				sumSize += getElSize($lastElement, isVertical) + spaceBetween;
+  if (size <= 0) {
+    if (++safety > 2000) break;
+    index++;
+    continue;
+  }
 
-				if (firstScreenVisibleSize < $parentNodeWidth || counterDuplicateElements % initialElementsLength !== 0) {
-					counterDuplicateElements += 1;
-					firstScreenVisibleSize += getElSize($lastElement, isVertical) + spaceBetween;
-				}
-			}
+  sumSize += size + spaceBetween;
+  index++;
 
-			setBaseStyles(firstScreenVisibleSize);
-		};
+  if (++safety > 2000) break;
+}
 
-		const correctSpaceBetween = () => {
-			if (spaceBetweenItem) {
-				$items.forEach(($item) => $item.style.removeProperty("margin-right"));
+if (firstScreenVisibleSize <= 0) return false;
 
-				spaceBetweenItem = parseFloat(window.getComputedStyle($items[0]).getPropertyValue("margin-right"));
-				spaceBetween = spaceBetweenItem ? spaceBetweenItem : !isNaN(dataMarqueeSpace) ? dataMarqueeSpace : 30;
-			}
-		};
+return true;
+    };
 
-		const init = () => {
-			correctSpaceBetween();
-			addDublicateElements();
-			animation();
-			initEvents();
-		};
+    const render = () => {
+      const now = performance.now();
+      const delta = now - lastFrameTime;
+      lastFrameTime = now;
 
-		const onResize = () => {
-			head.querySelector(`.${animName}`)?.remove();
-			init();
-		};
+      const easing = 0.05;
+      const maxSpeed = (isReverse ? 1 : -1) * (speed / 1000);
+      const targetSpeed = isDragging || isPaused ? 0 : maxSpeed;
 
-		const onChangePaused = (e) => {
-			const { type, target } = e;
+      velocity += (targetSpeed - velocity) * easing;
+      currentX += velocity * delta;
 
-			target.style.animationPlayState = type === "mouseenter" ? "paused" : "running";
-		};
+      if (currentX <= -firstScreenVisibleSize * 2) {
+        currentX += firstScreenVisibleSize;
+      }
 
-		onWindowWidthResize(onResize);
-	});
+      if (currentX >= -firstScreenVisibleSize) {
+        currentX -= firstScreenVisibleSize;
+      }
+
+      $marqueeInner.style.transform = `translateX(${currentX}px)`;
+      rafId = requestAnimationFrame(render);
+    };
+
+    const initDrag = () => {
+      $marqueeInner.style.cursor = isDraggable ? "grab" : "";
+      if (isDraggable) $marqueeInner.style.touchAction = "pan-y";
+      if (!isDraggable) return;
+
+      const getPointerX = (e) =>
+        e.type.startsWith("touch") ? e.touches[0].clientX : e.clientX;
+
+      const getPointerY = (e) =>
+        e.type.startsWith("touch") ? e.touches[0].clientY : e.clientY;
+
+      let isPointerDown = false;
+      let lockAxis = null;
+      const moveThreshold = 6;
+      const angleRatio = 1.2;
+      let dragStartTime = 0;
+
+      onPointerDown = (e) => {
+        isPointerDown = true;
+        isDragging = false;
+        lockAxis = null;
+        startX = getPointerX(e);
+        startY = getPointerY(e);
+        dragStartX = currentX;
+        dragStartTime = performance.now();
+
+        if (e.type === "mousedown") e.preventDefault();
+
+        $marqueeInner.style.cursor = "grabbing";
+
+        window.addEventListener("mousemove", onPointerMove, { passive: false });
+        window.addEventListener("mouseup", onPointerUp, { passive: true });
+        window.addEventListener("touchmove", onPointerMove, { passive: false });
+        window.addEventListener("touchend", onPointerUp, { passive: true });
+        window.addEventListener("touchcancel", onPointerUp, { passive: true });
+      };
+
+      onPointerMove = (e) => {
+        if (!isPointerDown) return;
+
+        const x = getPointerX(e);
+        const y = getPointerY(e);
+        const dx = x - startX;
+        const dy = y - startY;
+        const adx = Math.abs(dx);
+        const ady = Math.abs(dy);
+
+        if (!lockAxis) {
+          if (adx < moveThreshold && ady < moveThreshold) return;
+
+          if (adx > ady * angleRatio) {
+            lockAxis = "x";
+            isDragging = true;
+            isPaused = true;
+            dragStartX = currentX;
+            startX = x;
+            startY = y;
+          } else if (ady > adx * angleRatio) {
+            lockAxis = "y";
+          } else {
+            return;
+          }
+        }
+
+        if (lockAxis === "y") return;
+
+        if (e.cancelable) e.preventDefault();
+
+        const delta = x - startX;
+        currentX = dragStartX + delta;
+      };
+
+      onPointerUp = () => {
+        if (isDragging) {
+          const dragDistance = currentX - dragStartX;
+          const dragDuration = Math.max(performance.now() - dragStartTime, 16);
+          const rawVelocity = dragDistance / dragDuration;
+          const maxInertia = 1.5;
+          const minThreshold = 0.1;
+
+          velocity =
+            Math.abs(rawVelocity) > minThreshold
+              ? Math.max(-maxInertia, Math.min(maxInertia, rawVelocity))
+              : 0;
+        }
+
+        isPointerDown = false;
+        isDragging = false;
+        lockAxis = null;
+        isPaused = false;
+        $marqueeInner.style.cursor = "grab";
+
+        window.removeEventListener("mousemove", onPointerMove);
+        window.removeEventListener("mouseup", onPointerUp);
+        window.removeEventListener("touchmove", onPointerMove);
+        window.removeEventListener("touchend", onPointerUp);
+        window.removeEventListener("touchcancel", onPointerUp);
+      };
+
+      onMouseLeave = () => {
+        if (document.pointerLockElement) return;
+        if (!isPointerDown) return;
+        onPointerUp();
+      };
+
+      $marqueeInner.addEventListener("mousedown", onPointerDown);
+      $marqueeInner.addEventListener("touchstart", onPointerDown, { passive: true });
+      $marqueeInner.addEventListener("mouseleave", onMouseLeave);
+    };
+
+    const destroy = () => {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+
+      currentX = 0;
+      velocity = 0;
+      isDragging = false;
+      isPaused = false;
+
+      if ($marqueeInner) {
+        $marqueeInner.style.cursor = "";
+        $marqueeInner.style.touchAction = "";
+        $marqueeInner.style.transform = "";
+
+        if (onPointerDown) {
+          $marqueeInner.removeEventListener("mousedown", onPointerDown);
+          $marqueeInner.removeEventListener("touchstart", onPointerDown);
+        }
+
+        if (onMouseLeave) {
+          $marqueeInner.removeEventListener("mouseleave", onMouseLeave);
+        }
+
+        if (onMouseEnterPause) {
+          $marqueeInner.removeEventListener("mouseenter", onMouseEnterPause);
+        }
+
+        if (onMouseLeavePause) {
+          $marqueeInner.removeEventListener("mouseleave", onMouseLeavePause);
+        }
+
+        const originalItems = cacheArray.length
+          ? cacheArray.map(($item) => $item.cloneNode(true))
+          : Array.from($marqueeInner.querySelectorAll(`[${ATTR.item}]`))
+              .slice(0, $items.length)
+              .map(($item) => $item.cloneNode(true));
+
+        $wrapper.innerHTML = "";
+        originalItems.forEach(($item) => {
+          $item.removeAttribute(ATTR.item);
+          $item.style.marginRight = "";
+          $item.style.flexShrink = "";
+          $wrapper.appendChild($item);
+        });
+      }
+
+      window.removeEventListener("mousemove", onPointerMove);
+      window.removeEventListener("mouseup", onPointerUp);
+      window.removeEventListener("touchmove", onPointerMove);
+      window.removeEventListener("touchend", onPointerUp);
+      window.removeEventListener("touchcancel", onPointerUp);
+
+      instances.delete($wrapper);
+    };
+
+   const init = () => {
+  let attempts = 0;
+  const maxAttempts = 60;
+
+  const tryInit = () => {
+    attempts++;
+
+    if (!hasValidSizes()) {
+      if (attempts < maxAttempts) {
+        requestAnimationFrame(tryInit);
+      }
+      return;
+    }
+
+    const isReady = addDuplicateElements();
+
+    if (!isReady || firstScreenVisibleSize <= 0) {
+      if (attempts < maxAttempts) {
+        requestAnimationFrame(tryInit);
+      }
+      return;
+    }
+
+    currentX = 0;
+    velocity = 0;
+    isDragging = false;
+    isPaused = false;
+    lastFrameTime = performance.now();
+
+    initDrag();
+
+    if ($wrapper.hasAttribute("data-fls-marquee-pause")) {
+      onMouseEnterPause = () => {
+        if (!isDragging) isPaused = true;
+      };
+
+      onMouseLeavePause = () => {
+        isPaused = false;
+      };
+
+      $marqueeInner.addEventListener("mouseenter", onMouseEnterPause);
+      $marqueeInner.addEventListener("mouseleave", onMouseLeavePause);
+    }
+
+    rafId = requestAnimationFrame(render);
+  };
+
+  tryInit();
 };
 
-marquee();
+    init();
+
+    instances.set($wrapper, {
+      destroy,
+    });
+  };
+
+  const destroyMarquee = ($wrapper) => {
+    const instance = instances.get($wrapper);
+    if (!instance) return;
+    instance.destroy();
+  };
+
+
+
+$marqueeArray.forEach(($wrapper) => {
+  const mediaQueryList = createMediaQueryList($wrapper);
+  let initRaf1 = null;
+  let initRaf2 = null;
+
+  const runCreate = () => {
+    cancelAnimationFrame(initRaf1);
+    cancelAnimationFrame(initRaf2);
+
+    destroyMarquee($wrapper);
+
+    initRaf1 = requestAnimationFrame(() => {
+      initRaf2 = requestAnimationFrame(() => {
+        createMarquee($wrapper);
+      });
+    });
+  };
+
+  const runDestroy = () => {
+    cancelAnimationFrame(initRaf1);
+    cancelAnimationFrame(initRaf2);
+    destroyMarquee($wrapper);
+  };
+
+  if (!mediaQueryList) {
+    runCreate();
+    return;
+  }
+
+  const handleMediaChange = (e) => {
+    if (e.matches) {
+      runCreate();
+    } else {
+      runDestroy();
+    }
+  };
+
+  handleMediaChange(mediaQueryList);
+  mediaQueryList.addEventListener("change", handleMediaChange);
+});
+
+window.addEventListener("beforeunload", () => {
+  $marqueeArray.forEach(($wrapper) => destroyMarquee($wrapper));
+});
+};

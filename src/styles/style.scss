@@ -27,7 +27,13 @@ body {
 	}
 }
 
+// FILTER
 
+// #633510
+// filter: invert(20%) sepia(57%) saturate(971%) hue-rotate(351deg) brightness(93%) contrast(92%);
+
+// #FFF1D5
+// filter: invert(93%) sepia(14%) saturate(666%) hue-rotate(321deg) brightness(103%) contrast(102%);
 
 .wrapper {
 	min-height: 100%;
@@ -51,8 +57,38 @@ body {
 	margin-inline: auto;
 }
 
+.ibg {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	&--cn {
+		object-fit: contain;
+	}
+}
+
+.title {
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  // color: var(--primary);
+  @media (min-width:toEm($mobileSmall)){
+    font-size: 48px;
+  }
+}
+.subtitle {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  // color: var(--primary);
+  @media (min-width:toEm($mobileSmall)){
+    font-size: 24px;
+  }
+}
 
 
-// body {
-// 	background-color: var(--blue);
-// }
+.bg--a {
+  background-color: var(--yellow-2);
+}
