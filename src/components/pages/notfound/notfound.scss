@@ -1,2 +1,40 @@
-.index {
+.notfound {
+  padding-top: 186px;
+  background: linear-gradient(180deg, var(--yellow-2) 0%, rgba(255, 255, 255, 0) 100%);
+  position: relative;
+  z-index: 1;
+  &:before {
+    content:'';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+  }
+
+  // .notfound__container
+  &__container {
+      margin-bottom: 70px;
+		}
+
+		// .notfound__head
+		&__head {
+      text-align: center;
+		}
+
+		// .notfound__title
+		&__title {
+      font-weight: 600;
+      font-size: 50px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+		}
+
+		// .notfound__subtitle
+		&__subtitle {
+      max-width: 654px;
+      margin-inline: auto;
+		}
 }

@@ -243,11 +243,15 @@
 
 		// .menu-header__btn
 		&__btn {
-			@media (max-width:toEm($tablet)){
-				&.btn {
-					width: 100%;
-					max-width: 95%;
+			&.btn {
+				@media (max-width:toEm($tablet)){
+				}
+				@media (max-width:toEm($tablet)) and (min-width:toEm($mobileSmall)) {
+					max-width: 350px;
+				}
+				@media (max-width:toEm($mobileSmall)){
 					margin-inline: auto;
+					min-width: 95%;
 				}
 			}
 		}

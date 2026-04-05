@@ -1,5 +1,5 @@
 <!doctype html>
-<html data-fls-lenis="" lang="uk">
+<html data-fls-lenis="" lang="uk" class="page-notfound">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +9,10 @@
 		<link rel="preload" href="./assets/fonts/Manrope-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		<link rel="shortcut icon" href="./assets/img/favicon.ico">
 		<title>Sweetbakers | 404</title>
-		<link rel="modulepreload" crossorigin href="./js/common.min.js?v=1775142818645">
-		<script type="module" crossorigin="" src="./js/popup.min.js?v=1775142818645"></script>
-		<link rel="stylesheet" crossorigin="" href="./css/popup.min.css?v=1775142818645">
-		<link rel="stylesheet" crossorigin="" href="./css/notfound.min.css?v=1775142818645">
+		<link rel="modulepreload" crossorigin href="./js/common.min.js?v=1775420688606">
+		<script type="module" crossorigin="" src="./js/popup.min.js?v=1775420688606"></script>
+		<link rel="stylesheet" crossorigin="" href="./css/popup.min.css?v=1775420688606">
+		<link rel="stylesheet" crossorigin="" href="./css/notfound.min.css?v=1775420688606">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -25,11 +25,11 @@
 									<a href="index" class="header__link" aria-label="to main page">Головна</a>
 								</li>
 								<li class="header__item">
-									<a href="#" class="header__link" aria-label="nove to katalog">каталог товарів</a>
+									<a href="#" data-fls-golink="brands" class="header__link" aria-label="nove to katalog">каталог товарів</a>
 								</li>
 							</ul>
 							<a href="index" class="header__logo" aria-label="to main page">
-								<img src="./assets/img/logos/logo.svg" width="131" height="112" alt="logo Sweet Bakers">
+								<img src="./assets/img/logos/logo.svg" fetchpriority="high" width="131" height="112" alt="logo Sweet Bakers">
 							</a>
 							<ul class="header__list">
 								<li class="header__item">
@@ -52,21 +52,21 @@
 										<a href="" class="menu-header__link" aria-label="open submenu">Каталог товарів</a>
 										<ul data-submenu-open="" class="menu-header__submenu submenu">
 											<li class="submenu__item">
-												<a href="#" class="submenu__link" aria-label="link to product">Elly</a>
+												<a href="elly.html" class="submenu__link" aria-label="link to product">Elly</a>
 											</li>
 											<li class="submenu__item">
-												<a href="#" class="submenu__link" aria-label="link to product">Boni Sano</a>
+												<a href="bonisano.html" class="submenu__link" aria-label="link to product">Boni Sano</a>
 											</li>
 											<li class="submenu__item">
-												<a href="#" class="submenu__link" aria-label="link to product">Molinero</a>
+												<a href="molinero.html" class="submenu__link" aria-label="link to product">Molinero</a>
 											</li>
 										</ul>
 									</li>
 									<li class="menu-header__item">
-										<a href="" class="menu-header__link" aria-label="open link">Про нас</a>
+										<a href="index.html#about" data-fls-golink="about" class="menu-header__link" aria-label="open link">Про нас</a>
 									</li>
 									<li class="menu-header__item">
-										<a href="" class="menu-header__link" aria-label="open link">Співпраця</a>
+										<a href="index.html#partnership" data-fls-golink="partnership" class="menu-header__link" aria-label="open link">Співпраця</a>
 									</li>
 								</ul>
 							</nav>
@@ -116,13 +116,83 @@
 				</div>
 			</header>
 			<main class="page">
-				<div data-fls-notfound="" class="index">
-					<p>
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae perspiciatis hic, soluta nam corrupti fugit voluptates fugiat blanditiis odit et maxime nemo pariatur ad mollitia quas laudantium quia quo excepturi!
-					</p>
+				<div data-fls-notfound="" class="notfound">
+					<div class="notfound__container">
+						<div class="notfound__head">
+							<div class="notfound__title">404</div>
+							<div class="notfound__subtitle subtitle">
+								Схоже, щось пішло не так і цієї сторінки вже не існує. Перейдіть на головну сторінку або до каталогу брендів.
+							</div>
+						</div>
+					</div>
+					<section data-goid="brands" data-fls-brands="" class="home-brands">
+						<div class="home-brands__container">
+							<div data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="home-brands__head">
+								<h2 class="home-brands__title title trans--1">НАШІ БРЕНДИ</h2>
+								<div class="home-brands__subtitle subtitle trans--1">
+									<p>
+										Наші бренди — це різні історії та емоції, які обʼєднує спільна цінність: якість, довіра та натхнення для наших клієнтів.
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="home-brands__body">
+							<div class="home-brands__nav __container">
+								<button type="button" class="home-brands__btn swiper-button-prev swiper-button" aria-label="prev">
+									<svg width="48" height="48" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M26.5 29L21.5 24L26.5 19" stroke="#633510" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+									</svg>
+								</button>
+								<button type="button" class="home-brands__btn swiper-button-next swiper-button" aria-label="next">
+									<svg width="48" height="48" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M21.5 19L26.5 24L21.5 29" stroke="#633510" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+									</svg>
+								</button>
+							</div>
+							<div class="home-brands__container">
+								<div data-fls-slider="" class="home-brands__slider swiper">
+									<div class="home-brands__wrapper swiper-wrapper">
+										<div class="home-brands__slide swiper-slide">
+											<a href="elly.html" class="home-brands__slide-body" aria-label="link">
+												<div class="home-brands__brand">
+													<img class="home-brands__mask" data-img-ignore="" loading="lazy" src="./assets/img/brands/brand-mask-1.svg" width="375" height="784" alt="Image">
+													<img data-img-ignore="" loading="lazy" class="home-brands__img" src="./assets/img/brands/brand-1.webp" width="375" height="784" alt="Image">
+												</div>
+												<div class="home-brands__name">
+													<p>Elly</p>
+												</div>
+											</a>
+										</div>
+										<div class="home-brands__slide swiper-slide">
+											<a href="molinero.html" class="home-brands__slide-body" aria-label="link">
+												<div class="home-brands__brand">
+													<img class="home-brands__mask" data-img-ignore="" loading="lazy" src="./assets/img/brands/brand-mask-2.svg" width="375" height="784" alt="Image">
+													<img data-img-ignore="" loading="lazy" class="home-brands__img" src="./assets/img/brands/brand-2.webp" width="375" height="784" alt="Image">
+												</div>
+												<div class="home-brands__name">
+													<p>Molinero</p>
+												</div>
+											</a>
+										</div>
+										<div class="home-brands__slide swiper-slide">
+											<a href="bonisano.html" class="home-brands__slide-body" aria-label="link">
+												<div class="home-brands__brand">
+													<img class="home-brands__mask" data-img-ignore="" loading="lazy" src="./assets/img/brands/brand-mask-3.svg" width="375" height="784" alt="Image">
+													<img data-img-ignore="" loading="lazy" class="home-brands__img" src="./assets/img/brands/brand-3.webp" width="375" height="784" alt="Image">
+												</div>
+												<div class="home-brands__name">
+													<p>BoniSano</p>
+												</div>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
 				</div>
 			</main>
-			<footer data-fls-footer="" class="footer">
+			<footer data-fls-footer="" data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="0.5" class="footer">
 				<div class="footer__container">
 					<div class="footer__head head-footer">
 						<div class="head-footer__logo-wr">

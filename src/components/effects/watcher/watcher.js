@@ -126,12 +126,12 @@ class ScrollWatcher {
 		if (entry.isIntersecting) {
 			// Бачимо об'єкт
 			// Додаємо клас
-			!targetElement.classList.contains('--watcher-view') ? targetElement.classList.add('--watcher-view') : null;
+			!targetElement.classList.contains('--view') ? targetElement.classList.add('--view') : null;
 			FLS(`_FLS_WATCHER_VIEW`, targetElement.classList[0]);
 		} else {
 			// Не бачимо об'єкт
 			// Забираємо клас
-			targetElement.classList.contains('--watcher-view') ? targetElement.classList.remove('--watcher-view') : null;
+			targetElement.classList.contains('--view') ? targetElement.classList.remove('--view') : null;
 			FLS(`_FLS_WATCHER_NOVIEW`, targetElement.classList[0]);
 		}
 	}

@@ -1,0 +1,169 @@
+.prod-hero {
+  .page-bonisano & {
+    background: linear-gradient(180deg, var(--yellow) 75%, rgba(255, 255, 255, 0) 100%);
+  }
+  .page-elly & {
+    background: linear-gradient(180deg, var(--blue) 75%, rgba(255, 255, 255, 0) 100%);
+  }
+  .page-molinero & {
+    background: linear-gradient(180deg, var(--orange) 75%, rgba(255, 255, 255, 0) 100%);
+  }
+  padding-bottom: 30px;
+  @media (min-width:toEm(820.98)){
+    padding-bottom: 124px;
+  }
+  // .prod-hero__img
+  &__img {
+    width: 100%;
+    // height: 100%;
+    @media (max-width: toEm(820.98)) and (min-width:toEm($mobileSmall)) {
+        padding-top: 60px;
+    }
+      img {
+        width: 100%;
+        height: auto;
+        @media (min-width:toEm(1200.98)){
+          min-width: 1920px;
+          max-width: 1920px;
+        }
+        @media (max-width: toEm(1200.98)) and (min-width: toEm($mobileSmall)) {
+            min-width: 160vw;
+        }
+        @media (min-width:toEm($mobileSmall)){
+          position: relative;
+          left: 50%;
+          transform: translate(-50%,0);
+          height: 100%;
+          aspect-ratio: 1920/924;
+        }
+      }
+		}
+
+		// .prod-hero__container
+		&__container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      @media (min-width:toEm($mobileSmall)){
+         gap: 60px;
+      }
+      &::after {
+        content:'';
+        position: relative;
+        z-index: -1;
+        left: 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+      .page-bonisano & {
+          bottom: 0;
+          transform: translate(-48%, 0%);
+          width: 136%;
+          aspect-ratio: 438/251;
+          margin-top: -65px;
+          @media (min-width:toEm(820.98)){
+            margin-top: 0;
+            transform: translate(-57%, 36%);
+            min-width: 1584px;
+            position: absolute;
+            aspect-ratio: 1584/539;
+            background-image: url("@img/boni/boni-el-pc.webp");
+          }
+          @media (max-width: toEm(820.98)){
+            background-image: url("@img/boni/boni-el-mb.webp");
+          }
+        }
+      .page-elly & {
+          bottom: 0;
+          transform: translate(-45%, 0%);
+          width: 150%;
+          aspect-ratio: 600/388;
+          margin-top: -20px;
+          @media (min-width:toEm(1100.98)) {
+            min-width: 2120px;
+            transform: translate(-52%, 38%);
+          }
+          @media (max-width:toEm(1100.98)) and (min-width:toEm(820.98)) {
+            width: 116vw;
+            transform: translate(-57%, 56%);
+          }
+          @media (min-width:toEm(820.98)){
+            margin-top: 0;
+            position: absolute;
+          }
+          @media (max-width: toEm(820.98)) and (min-width:toEm($mobileSmall)) {
+            width: 110%;
+          }
+          @media (min-width:toEm($mobileSmall)){
+            aspect-ratio: 1920/688;
+            background-image: url("@img/elly/elly-el-pc.png");
+          }
+          @media (max-width:toEm($mobileSmall)){
+            background-image: url("@img/elly/elly-el-mb.png");
+              
+          }
+        }
+
+         .page-molinero & {
+          bottom: 0;
+          transform: translate(-50%, 0%);
+          width: 136%;
+          aspect-ratio: 600/388;
+          margin-top: -20px;
+          @media (min-width:toEm(820.98)){
+            margin-top: 0;
+            transform: translate(-52%, 36%);
+            min-width: 2150px;
+            position: absolute;
+          }
+          @media (max-width: toEm(820.98)) and (min-width:toEm($mobileSmall)) {
+            width: 100%;
+          }
+          @media (min-width:toEm($mobileSmall)){
+            aspect-ratio: 1920/608;
+            background-image: url("@img/molinero/molinero-el-pc.png");
+          }
+          @media (max-width:toEm($mobileSmall)){
+            background-image: url("@img/molinero/molinero-el-mb.png");
+              
+          }
+        }
+
+      }
+		}
+
+		// .prod-hero__head
+		&__head {
+      text-align: center;
+      @media (min-width:toEm(820.98)){
+         order: 1; 
+         gap: 60px;
+      }
+		}
+
+		// .prod-hero__title
+		&__title {
+      margin-bottom: 24px;
+      @media (min-width:toEm($mobileSmall)){
+         margin-bottom: 16px; 
+      }
+		}
+
+		// .prod-hero__subtitle
+		&__subtitle {
+      max-width: 895px;
+      margin-inline: auto;
+		}
+
+		// .prod-hero__link
+		&__link {
+      margin-inline: auto;
+      min-width: 225px;
+      @media (min-width:toEm(820.98)){
+        order: 2;
+        min-width: 250px;
+      }
+		}
+}

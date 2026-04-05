@@ -1,5 +1,5 @@
 <!doctype html>
-<html data-fls-lenis="" lang="uk">
+<html data-fls-lenis="" lang="uk" class="page-home">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,11 +9,13 @@
 		<link rel="preload" href="./assets/fonts/Manrope-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 		<link rel="shortcut icon" href="./assets/img/favicon.ico">
 		<title>Sweetbakers | Home</title>
-		<script type="module" crossorigin="" src="./js/index.min.js?v=1775142818647"></script>
-		<link rel="modulepreload" crossorigin="" href="./js/common.min.js?v=1775142818647">
-		<link rel="modulepreload" crossorigin="" href="./js/popup.min.js?v=1775142818647">
-		<link rel="stylesheet" crossorigin="" href="./css/popup.min.css?v=1775142818647">
-		<link rel="stylesheet" crossorigin="" href="./css/index.min.css?v=1775142818647">
+		<style>.home-hero__slider{overflow:hidden}.home-hero__wrapper{width:100%;height:100%;box-sizing:content-box;display:flex;position:relative}.home-hero__slide{flex-shrink:0;width:100%;overflow:hidden}</style>
+		<script type="module" crossorigin="" src="./js/index.min.js?v=1775420688606"></script>
+		<link rel="modulepreload" crossorigin="" href="./js/common.min.js?v=1775420688606">
+		<link rel="modulepreload" crossorigin="" href="./js/popup.min.js?v=1775420688606">
+		<link rel="modulepreload" crossorigin="" href="./js/dynamic.min.js?v=1775420688606">
+		<link rel="stylesheet" crossorigin="" href="./css/popup.min.css?v=1775420688606">
+		<link rel="stylesheet" crossorigin="" href="./css/index.min.css?v=1775420688606">
 	</head>
 	<body>
 		<div class="wrapper">
@@ -26,11 +28,11 @@
 									<a href="index" class="header__link" aria-label="to main page">Головна</a>
 								</li>
 								<li class="header__item">
-									<a href="#" class="header__link" aria-label="nove to katalog">каталог товарів</a>
+									<a href="#" data-fls-golink="brands" class="header__link" aria-label="nove to katalog">каталог товарів</a>
 								</li>
 							</ul>
 							<a href="index" class="header__logo" aria-label="to main page">
-								<img src="./assets/img/logos/logo.svg" width="131" height="112" alt="logo Sweet Bakers">
+								<img src="./assets/img/logos/logo.svg" fetchpriority="high" width="131" height="112" alt="logo Sweet Bakers">
 							</a>
 							<ul class="header__list">
 								<li class="header__item">
@@ -53,21 +55,21 @@
 										<a href="" class="menu-header__link" aria-label="open submenu">Каталог товарів</a>
 										<ul data-submenu-open="" class="menu-header__submenu submenu">
 											<li class="submenu__item">
-												<a href="#" class="submenu__link" aria-label="link to product">Elly</a>
+												<a href="elly.html" class="submenu__link" aria-label="link to product">Elly</a>
 											</li>
 											<li class="submenu__item">
-												<a href="#" class="submenu__link" aria-label="link to product">Boni Sano</a>
+												<a href="bonisano.html" class="submenu__link" aria-label="link to product">Boni Sano</a>
 											</li>
 											<li class="submenu__item">
-												<a href="#" class="submenu__link" aria-label="link to product">Molinero</a>
+												<a href="molinero.html" class="submenu__link" aria-label="link to product">Molinero</a>
 											</li>
 										</ul>
 									</li>
 									<li class="menu-header__item">
-										<a href="" class="menu-header__link" aria-label="open link">Про нас</a>
+										<a href="index.html#about" data-fls-golink="about" class="menu-header__link" aria-label="open link">Про нас</a>
 									</li>
 									<li class="menu-header__item">
-										<a href="" class="menu-header__link" aria-label="open link">Співпраця</a>
+										<a href="index.html#partnership" data-fls-golink="partnership" class="menu-header__link" aria-label="open link">Співпраця</a>
 									</li>
 								</ul>
 							</nav>
@@ -118,9 +120,9 @@
 			</header>
 			<main class="page">
 				<section data-fls-index="" class="home-hero">
-					<div data-fls-slider="" style="overflow: hidden;" class="home-hero__slider swiper">
-						<div class="home-hero__wrapper swiper-wrapper" style="width: 100%; height: 100%; box-sizing: content-box; display: flex; position: relative;">
-							<div class="home-hero__slide swiper-slide" style="flex-shrink: 0; width: 100%; overflow: hidden;">
+					<div data-fls-slider="" class="home-hero__slider swiper">
+						<div class="home-hero__wrapper swiper-wrapper">
+							<div class="home-hero__slide swiper-slide">
 								<div class="home-hero__slide-body">
 									<!-- видое-элемент - подтягивается через JS из ata-video в зависимости от условия ширины экрана, на мобилках не отобржается. Видео соотношением 1920/924 -->
 									<div class="home-hero__media" data-video="assets/video/banner-elly-crop.mp4"></div>
@@ -134,13 +136,13 @@
 										</picture>
 									</div>
 									<div class="home-hero__container">
-										<a href="#" data-fls-button="" class="home-hero__link btn btn--b" aria-label="link">
+										<a href="elly.html" data-fls-button="" class="home-hero__link btn btn--b" aria-label="link">
 											<span>Детальніше</span>
 										</a>
 									</div>
 								</div>
 							</div>
-							<div class="home-hero__slide swiper-slide" style="flex-shrink: 0; width: 100%; overflow: hidden;">
+							<div class="home-hero__slide swiper-slide">
 								<div class="home-hero__slide-body">
 									<div class="home-hero__media" data-video="assets/video/banner-bonisano-crop.mp4"></div>
 									<div class="home-hero__img">
@@ -150,13 +152,13 @@
 										</picture>
 									</div>
 									<div class="home-hero__container">
-										<a href="#" data-fls-button="" class="home-hero__link btn btn--b" aria-label="link">
+										<a href="bonisano.html" data-fls-button="" class="home-hero__link btn btn--b" aria-label="link">
 											<span>Детальніше</span>
 										</a>
 									</div>
 								</div>
 							</div>
-							<div class="home-hero__slide swiper-slide" style="flex-shrink: 0; width: 100%; overflow: hidden;">
+							<div class="home-hero__slide swiper-slide">
 								<div class="home-hero__slide-body">
 									<div class="home-hero__media" data-video="assets/video/banner-molinero-crop.mp4"></div>
 									<div class="home-hero__img">
@@ -166,7 +168,7 @@
 										</picture>
 									</div>
 									<div class="home-hero__container">
-										<a href="#" data-fls-button="" class="home-hero__link btn btn--b" aria-label="link">
+										<a href="molinero.html" data-fls-button="" class="home-hero__link btn btn--b" aria-label="link">
 											<span>Детальніше</span>
 										</a>
 									</div>
@@ -196,11 +198,11 @@
 						</a>
 					</div>
 				</section>
-				<section class="home-brands">
+				<section data-goid="brands" data-fls-brands="" class="home-brands">
 					<div class="home-brands__container">
-						<div class="home-brands__head">
-							<h2 class="home-brands__title title">НАШІ БРЕНДИ</h2>
-							<div class="home-brands__subtitle subtitle">
+						<div data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="home-brands__head">
+							<h2 class="home-brands__title title trans--1">НАШІ БРЕНДИ</h2>
+							<div class="home-brands__subtitle subtitle trans--1">
 								<p>
 									Наші бренди — це різні історії та емоції, які обʼєднує спільна цінність: якість, довіра та натхнення для наших клієнтів.
 								</p>
@@ -224,7 +226,7 @@
 							<div data-fls-slider="" class="home-brands__slider swiper">
 								<div class="home-brands__wrapper swiper-wrapper">
 									<div class="home-brands__slide swiper-slide">
-										<a href="#" class="home-brands__slide-body" aria-label="link">
+										<a href="elly.html" class="home-brands__slide-body" aria-label="link">
 											<div class="home-brands__brand">
 												<img class="home-brands__mask" data-img-ignore="" loading="lazy" src="./assets/img/brands/brand-mask-1.svg" width="375" height="784" alt="Image">
 												<img data-img-ignore="" loading="lazy" class="home-brands__img" src="./assets/img/brands/brand-1.webp" width="375" height="784" alt="Image">
@@ -235,7 +237,7 @@
 										</a>
 									</div>
 									<div class="home-brands__slide swiper-slide">
-										<a href="#" class="home-brands__slide-body" aria-label="link">
+										<a href="molinero.html" class="home-brands__slide-body" aria-label="link">
 											<div class="home-brands__brand">
 												<img class="home-brands__mask" data-img-ignore="" loading="lazy" src="./assets/img/brands/brand-mask-2.svg" width="375" height="784" alt="Image">
 												<img data-img-ignore="" loading="lazy" class="home-brands__img" src="./assets/img/brands/brand-2.webp" width="375" height="784" alt="Image">
@@ -246,7 +248,7 @@
 										</a>
 									</div>
 									<div class="home-brands__slide swiper-slide">
-										<a href="#" class="home-brands__slide-body" aria-label="link">
+										<a href="bonisano.html" class="home-brands__slide-body" aria-label="link">
 											<div class="home-brands__brand">
 												<img class="home-brands__mask" data-img-ignore="" loading="lazy" src="./assets/img/brands/brand-mask-3.svg" width="375" height="784" alt="Image">
 												<img data-img-ignore="" loading="lazy" class="home-brands__img" src="./assets/img/brands/brand-3.webp" width="375" height="784" alt="Image">
@@ -308,9 +310,9 @@
 					<section class="home-box">
 						<div class="home-box__container">
 							<div class="home-box__body">
-								<div class="home-box__head">
-									<h2 class="home-box__title title">SAMPLE BOX</h2>
-									<div class="home-box__subtitle subtitle">
+								<div data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="home-box__head">
+									<h2 class="home-box__title title trans--1">SAMPLE BOX</h2>
+									<div class="home-box__subtitle subtitle trans--1">
 										<p>
 											Скуштуйте асортимент
 											<br>
@@ -318,13 +320,13 @@
 										</p>
 									</div>
 								</div>
-								<div class="home-box__bg">
+								<div data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="0.5" class="home-box__bg trans--3">
 									<picture>
 										<source media="(max-width: 30.186em)" srcset="./assets/img/box/box-mob.webp" type="image/webp">
 										<img data-img-ignore="" loading="lazy" src="./assets/img/box/box-pc.webp" width="798" heigh="487" alt="Image">
 									</picture>
 								</div>
-								<div class="home-box__btn">
+								<div data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="0.5" class="home-box__btn trans--2">
 									<a href="#" data-fls-popup-link="popup-form" data-fls-button="" class="home-box__link btn btn--a" aria-label="open form">
 										<span>Замовити</span>
 									</a>
@@ -332,18 +334,18 @@
 							</div>
 						</div>
 					</section>
-					<section class="home-about">
+					<section data-goid="about" class="home-about">
 						<div class="home-about__container">
-							<div class="home-about__head">
-								<h2 class="home-about__title title">ПРО НАС</h2>
-								<div class="home-about__subtitle subtitle">
+							<div data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="home-about__head">
+								<h2 class="home-about__title title trans--1">ПРО НАС</h2>
+								<div class="home-about__subtitle subtitle trans--1">
 									<p>
 										Sweet Bakers — це більше, ніж виробництво кондитерських виробів.
             Це команда, що поєднує досвід, інновації та пристрасть до солодкої справи.
 									</p>
 								</div>
 							</div>
-							<div class="home-marquee">
+							<div data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="home-marquee">
 								<div class="home-marquee__body" data-fls-marquee="" data-fls-marquee-space="0" data-fls-marquee-speed="300" data-fls-marquee-direction="left" data-fls-marquee-drag="">
 									<div class="home-marquee__item">
 										<img class="ibg" data-img-ignore="" loading="lazy" src="./assets/img/about/about-1.webp" width="342" height="225" alt="Image">
@@ -418,8 +420,8 @@
 						</div>
 					</section>
 					<section class="home-cta-a">
-						<div class="home-cta-a__container">
-							<h2 class="home-cta-a__title title">
+						<div data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="home-cta-a__container">
+							<h2 class="home-cta-a__title title trans--1">
 								СТВОРЮЄМО СОЛОДОЩІ,
 								<span>ЯКІ ПРОДАЮТЬ СЕБЕ САМІ!</span>
 							</h2>
@@ -429,11 +431,11 @@
 						</div>
 					</section>
 					<div class="common-bg-circle"></div>
-					<section class="home-partnership">
+					<section data-goid="partnership" class="home-partnership">
 						<div class="home-partnership__container">
-							<div class="home-partnership__head">
-								<h2 class="home-partnership__title title">СПІВПРАЦЯ</h2>
-								<div class="home-partnership__subtitle subtitle">
+							<div data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="home-partnership__head">
+								<h2 class="home-partnership__title title trans--1">СПІВПРАЦЯ</h2>
+								<div class="home-partnership__subtitle subtitle trans--1">
 									<p>
 										Sweet Bakers відкриті до різних форматів співпраці та завжди готові
             знаходити нові точки зростання разом із партнерами
@@ -443,14 +445,14 @@
 							<div class="home-partnership__body">
 								<div class="home-partnership__imgs">
 									<img class="home-partnership__img-sm" data-img-ignore="" loading="lazy" src="./assets/img/elements/circle-2.webp" width="132" heigh="132" alt="Image">
-									<div class="home-partnership__img-big">
+									<div data-fls-parallax-parent="" class="home-partnership__img-big">
 										<picture>
 											<source media="(max-width: 30.186em)" srcset="./assets/img/elements/chocolates-mb.webp" type="image/webp">
-											<img data-img-ignore="" loading="lazy" src="./assets/img/elements/chocolates-pc.webp" width="820" heigh="603" alt="Image">
+											<img data-fls-parallax="" data-img-ignore="" loading="lazy" src="./assets/img/elements/chocolates-pc.webp" width="820" heigh="603" alt="Image">
 										</picture>
 									</div>
 								</div>
-								<ul class="home-partnership__list">
+								<ul data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="home-partnership__list">
 									<li class="home-partnership__item">
 										<div class="home-partnership__t">
 											<p>Виробники</p>
@@ -460,7 +462,7 @@
 												У Вас є сильна ідея для ринку? Ми відкриті до спільних проектів та ко-брендингу.
 											</p>
 										</div>
-										<svg class="home-partnership__svg-a svg--1" width="49" height="81" viewbox="0 0 49 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<svg data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="home-partnership__svg-a svg--1" width="49" height="81" viewbox="0 0 49 81" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M9.60825 61.4048C9.60825 61.4048 3.26824 73.705 1.69824 76.7451C5.06824 77.3551 18.6783 79.8155 18.6783 79.8155" stroke="#633510" stroke-width="2.25" stroke-miterlimit="10"></path>
 											<path d="M15.5082 5.98321C17.5682 4.07316 20.0282 2.60319 22.7282 1.81316C30.8782 -0.56691 40.4182 3.41327 44.4682 10.8735C49.4982 20.1338 45.9482 31.7239 40.6982 40.8642C31.8082 56.3347 18.1982 69.045 2.1582 76.8453" stroke="#633510" stroke-width="2.25" stroke-miterlimit="10"></path>
 										</svg>
@@ -474,7 +476,7 @@
 												Готові обговорювати представленість наших брендів і виводитинові продукти на полиці разом з нами
 											</p>
 										</div>
-										<svg class="home-partnership__svg-a svg--2" width="69" height="68" viewbox="0 0 69 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<svg data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="home-partnership__svg-a svg--2" width="69" height="68" viewbox="0 0 69 68" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M52.8929 46.1309C52.8929 46.1309 63.9429 54.4515 66.6729 56.5116C63.9029 58.5216 52.7129 66.6515 52.7129 66.6515" stroke="#633510" stroke-width="2.25" stroke-miterlimit="10"></path>
 											<path d="M25.7425 3.57976C31.7125 2.23972 37.7625 0.889753 43.8825 1.15976C49.9925 1.42977 56.2725 3.50974 60.3625 8.05988C64.4525 12.61 65.7425 19.9102 62.3225 24.9803C59.9225 28.5604 55.5925 30.5403 51.2925 30.8203C46.9925 31.1004 42.7125 29.8405 38.8225 28.0004C32.1925 24.8803 26.2925 20.0505 19.1825 18.2804C12.0725 16.5104 2.87245 19.41 1.34245 26.5702C0.0124483 32.8004 5.01246 38.5409 10.1025 42.371C25.5625 54.0114 45.7925 59.1113 64.9225 56.1912" stroke="#633510" stroke-width="2.25" stroke-miterlimit="10"></path>
 										</svg>
@@ -493,10 +495,10 @@
 							</div>
 						</div>
 					</section>
-					<section class="home-cta-b">
+					<section data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="home-cta-b">
 						<div class="home-cta-b__container">
 							<div class="home-cta-b__body">
-								<h2 class="home-cta-b__title title">
+								<h2 class="home-cta-b__title title trans--1">
 									ГНУЧКИЙ ПАРТНЕР
 									<span>для тих, хто хоче розвивати ринок солодощів разом!</span>
 								</h2>
@@ -508,9 +510,9 @@
 					</section>
 					<section class="home-cta-c">
 						<div class="home-cta-c__container">
-							<div class="home-cta-c__head">
-								<h2 class="home-cta-c__title title">ЗВ'ЯЖІТЬСЯ З НАМИ!</h2>
-								<div class="home-cta-c__subtitle subtitle">
+							<div data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="home-cta-c__head">
+								<h2 class="home-cta-c__title title trans--1">ЗВ'ЯЖІТЬСЯ З НАМИ!</h2>
+								<div class="home-cta-c__subtitle subtitle trans--1">
 									<p>Маєте будь-які запитання?</p>
 								</div>
 								<a href="#" data-fls-popup-link="popup-form" data-fls-button="" class="home-cta-c__btn btn btn--c" aria-label="open form">
@@ -525,14 +527,14 @@
 				</div>
 				<section data-fls-mouse-mouse-wrapper="" class="home-candy">
 					<div class="home-candy__container">
-						<div class="home-candy__head">
-							<h2 class="home-candy__title title">НАШІ СОЛОДОЩІ</h2>
-							<div class="home-candy__subtitle subtitle">
+						<div data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="home-candy__head">
+							<h2 class="home-candy__title title trans--1">НАШІ СОЛОДОЩІ</h2>
+							<div class="home-candy__subtitle subtitle trans--1">
 								<p>Створені для моментів радості!</p>
 							</div>
 						</div>
 					</div>
-					<div class="home-marquee">
+					<div data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="home-marquee">
 						<div class="home-marquee__body" data-fls-marquee="" data-fls-marquee-space="0" data-fls-marquee-speed="300" data-fls-marquee-direction="left" data-fls-marquee-drag="">
 							<div class="home-marquee__item item-marquee-2">
 								<img class="ibg" data-img-ignore="" loading="lazy" src="./assets/img/marquee/photo-1.webp" width="307" height="360" alt="Image">
@@ -586,13 +588,13 @@
 					<div class="home-partners__top">
 						<div class="__container">
 							<div class="home-partners__body">
-								<div class="home-partners__head">
-									<h2 class="home-partners__title title">
+								<div data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="home-partners__head">
+									<h2 class="home-partners__title title trans--1">
 										наші
 										<br>
 										партнери
 									</h2>
-									<div class="home-partners__subtitle subtitle">
+									<div class="home-partners__subtitle subtitle trans--1">
 										<p>
 											Нам довіряють провідні рітейли та дистрибютори, обираючи нашу продукцію для успішної співпраці!
 										</p>
@@ -614,7 +616,7 @@
 					</div>
 					<div class="home-partners__bottom">
 						<div class="home-partners__container">
-							<div class="partners-marquee">
+							<div data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="1" class="partners-marquee">
 								<div class="partners-marquee__body" data-fls-marquee="" data-fls-marquee-media="768,max" data-fls-marquee-space="0" data-fls-marquee-speed="200" data-fls-marquee-direction="left" data-fls-marquee-drag="">
 									<div class="partners-marquee__item">
 										<img class="ibg ibg--cn" loading="lazy" src="./assets/img/logos/logo_partners-01.svg" width="200" height="68" alt="logo">
@@ -658,7 +660,7 @@
 					</div>
 				</section>
 			</main>
-			<footer data-fls-footer="" class="footer">
+			<footer data-fls-footer="" data-fls-watcher="" data-fls-watcher-once="" data-fls-watcher-threshold="0.5" class="footer">
 				<div class="footer__container">
 					<div class="footer__head head-footer">
 						<div class="head-footer__logo-wr">
@@ -827,16 +829,73 @@
 				</div>
 			</div>
 		</div>
-		<div data-fls-popup="popup-product" data-lenis-prevent="false" aria-hidden="true" class="popup">
-			<div data-fls-popup-wrapper="" class="popup__wrapper">
-				<div data-fls-popup-body="" class="popup__body">
-					<button data-fls-popup-close="" type="button" class="popup__close">
-						<svg width="23" height="23" viewbox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path opacity="0.850056" d="M1.73333 1.48883L21.5469 21.0288" stroke="#979797" stroke-linecap="square"></path>
-							<path opacity="0.850056" d="M21.2667 1.48883L1.45309 21.0288" stroke="#979797" stroke-linecap="square"></path>
+		<div data-fls-popup="popup-product" data-lenis-prevent="false" aria-hidden="true" class="popup-product">
+			<div data-fls-popup-wrapper="">
+				<div data-fls-popup-body="">
+					<button data-fls-popup-close="" type="button" class="popup__close" aria-label="close popup">
+						<svg class="popup__close-i-1" width="64" height="64" viewbox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<rect x="0.5" y="0.5" width="63" height="63" rx="31.5" stroke="#633510"></rect>
+							<path d="M47 47L17 17" stroke="#633510" stroke-linecap="round" stroke-linejoin="round"></path>
+							<path d="M47 17L17 47" stroke="#633510" stroke-linecap="round" stroke-linejoin="round"></path>
+						</svg>
+						<svg class="popup__close-i-2" width="29" height="28" viewbox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M1.70691 26.7225L14.2429 14.1865L26.7788 26.7225C27.1693 27.113 27.8025 27.113 28.193 26.7225C28.5825 26.3323 28.5838 25.699 28.193 25.3083L15.6571 12.7723L19.3652 9.06416C19.7538 8.67427 19.7554 8.04149 19.3646 7.65064C18.974 7.26075 18.3411 7.26124 17.951 7.64995L14.2429 11.3581L3.17844 0.293688C2.788 -0.0961781 2.15455 -0.0959326 1.76423 0.293688C1.37353 0.684382 1.37457 1.31767 1.76423 1.7079L12.8287 12.7723L0.2927 25.3083C-0.098013 25.699 -0.0968585 26.3323 0.2927 26.7225C0.683224 27.113 1.31639 27.113 1.70691 26.7225ZM23.7791 4.65027L26.7229 1.70652C27.1118 1.31642 27.1127 0.683648 26.7222 0.292997C26.3315 -0.0977053 25.6987 -0.0965573 25.3087 0.292307L22.3649 3.23605C21.9744 3.62658 21.9744 4.25974 22.3649 4.65027C22.7554 5.04064 23.3886 5.04082 23.7791 4.65027Z" fill="#633510"></path>
 						</svg>
 					</button>
-					<div data-fls-popup-content="" class="popup__text"><!-- Контент --></div>
+					<div data-fls-popup-content="" class="popup-product__content">
+						<div class="popup-product__body">
+							<div data-modal-head="" class="popup-product__head">
+								<h3 data-modal-title="" class="popup-product__title"><!-- Fantuci зі смаком Малини --></h3>
+								<div data-modal-subtitle="" class="popup-product__subtitle"><!-- вироби кондитерські, ТМ «Boni Sano» --></div>
+							</div>
+							<div data-modal-description-wrap="" class="popup-product__description">
+								<div data-modal-description="">
+									<!-- Кондитерський виріб з ніжним конфітюром, який надає десерту особливої родзинки. Це знайомий і улюблений традиційний смак у сучасній інтерпретації. Стильний та якісний дизайн пакування підкреслює оновлений характер продукту й робить його привабливим для щоденного задоволення. -->
+								</div>
+							</div>
+							<div class="popup-product__btn-wr">
+								<a href="#" data-fls-dynamic=".popup-product__body,992.98,last" data-fls-popup-link="popup-form" data-fls-button="" class="popup-product__btn btn btn--a" aria-label="open popup form">
+									<span>Замовити</span>
+								</a>
+							</div>
+							<div class="popup-product__bottom">
+								<div data-modal-block-1="" class="popup-product__block-1">
+									<div class="popup-product__info">Характеристики:</div>
+									<p class="popup-product__text" data-modal-weight-row="">
+										Вага продукту:
+										<span data-modal-weight=""><!-- 300 г(g) --></span>
+									</p>
+									<p class="popup-product__text" data-modal-life-row="">
+										Термін придатності:
+										<span data-modal-life=""><!-- 12 місяців --></span>
+									</p>
+								</div>
+								<div data-modal-block-2="" class="popup-product__block-2">
+									<div class="popup-product__info">Варіанти фасовки:</div>
+									<div class="popup-product__boxes">
+										<!--
+<div class="popup-product__box">
+<img class="popup-product__box-img" src="@img/icons/box-1.svg" width="60" height="60" alt="Image">
+<div class="popup-product__box-t">шоубокс</div>
+<div class="popup-product__box-c">460 г (20 шт * 23 г)</div>
+</div>
+<div class="popup-product__box">
+<img class="popup-product__box-img" src="@img/icons/box-2.svg" width="60" height="60" alt="Image">
+<div class="popup-product__box-t">ящик</div>
+<div class="popup-product__box-c">8 шоубоксів</div>
+</div>
+-->
+									</div>
+								</div>
+							</div>
+						</div>
+						<div data-modal-image="" data-fls-dynamic=".popup-product__body,992.98,1" class="popup-product__image">
+							<picture>
+								<source media="(max-width: 30.186em)" srcset="./assets/img/boni/bonisamo-1-mb.webp" type="image/webp">
+								<img data-img-ignore="" class="ibg ibg--cn" src="./assets/img/boni/bonisamo-1-pc.webp" alt="image">
+							</picture>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

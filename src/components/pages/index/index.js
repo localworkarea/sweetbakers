@@ -183,4 +183,39 @@ function initHeroMedia() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', initHeroMedia);
+
+
+
+function initPartnershipSvgStroke() {
+	const svgs = document.querySelectorAll(".home-partnership__svg-a");
+	if (!svgs.length) return;
+
+	svgs.forEach((svg) => {
+		const paths = svg.querySelectorAll("path");
+		if (!paths.length) return;
+
+		paths.forEach((path, index) => {
+			const length = path.getTotalLength();
+
+			path.style.setProperty("--path-length", `${length}px`);
+		});
+	});
+}
+
+
+
+function initPartnersMarqueeDelay() {
+	const items = document.querySelectorAll(".partners-marquee__item img");
+	if (!items.length) return;
+
+	items.forEach((img, index) => {
+		img.style.setProperty("--delay", `${index * 0.05}s`);
+	});
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  initHeroMedia();
+	initPartnershipSvgStroke();
+  initPartnersMarqueeDelay();
+});

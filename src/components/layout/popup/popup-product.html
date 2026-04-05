@@ -1,11 +1,77 @@
 <link rel="stylesheet" href="@components/layout/popup/popup.scss">
-<div data-fls-popup="popup-product" data-lenis-prevent="false"  aria-hidden="true" class="popup">
-	<div data-fls-popup-wrapper class="popup__wrapper">
-		<div data-fls-popup-body class="popup__body">
-			<button data-fls-popup-close type="button" class="popup__close"><svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.850056" d="M1.73333 1.48883L21.5469 21.0288" stroke="#979797" stroke-linecap="square" /><path opacity="0.850056" d="M21.2667 1.48883L1.45309 21.0288" stroke="#979797" stroke-linecap="square" /></svg></button>
-			<div data-fls-popup-content class="popup__text">
-				<!-- Контент -->
+<div data-fls-popup="popup-product" data-lenis-prevent="false" aria-hidden="true" class="popup-product">
+	<div data-fls-popup-wrapper>
+		<div data-fls-popup-body>
+			<button data-fls-popup-close type="button" class="popup__close" aria-label="close popup">
+				<svg class="popup__close-i-1" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<rect x="0.5" y="0.5" width="63" height="63" rx="31.5" stroke="#633510" />
+					<path d="M47 47L17 17" stroke="#633510" stroke-linecap="round" stroke-linejoin="round" />
+					<path d="M47 17L17 47" stroke="#633510" stroke-linecap="round" stroke-linejoin="round" />
+				</svg>
+				<svg class="popup__close-i-2" width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path
+						d="M1.70691 26.7225L14.2429 14.1865L26.7788 26.7225C27.1693 27.113 27.8025 27.113 28.193 26.7225C28.5825 26.3323 28.5838 25.699 28.193 25.3083L15.6571 12.7723L19.3652 9.06416C19.7538 8.67427 19.7554 8.04149 19.3646 7.65064C18.974 7.26075 18.3411 7.26124 17.951 7.64995L14.2429 11.3581L3.17844 0.293688C2.788 -0.0961781 2.15455 -0.0959326 1.76423 0.293688C1.37353 0.684382 1.37457 1.31767 1.76423 1.7079L12.8287 12.7723L0.2927 25.3083C-0.098013 25.699 -0.0968585 26.3323 0.2927 26.7225C0.683224 27.113 1.31639 27.113 1.70691 26.7225ZM23.7791 4.65027L26.7229 1.70652C27.1118 1.31642 27.1127 0.683648 26.7222 0.292997C26.3315 -0.0977053 25.6987 -0.0965573 25.3087 0.292307L22.3649 3.23605C21.9744 3.62658 21.9744 4.25974 22.3649 4.65027C22.7554 5.04064 23.3886 5.04082 23.7791 4.65027Z"
+						fill="#633510" />
+				</svg>
+			</button>
+			<div data-fls-popup-content class="popup-product__content">
+				<div class="popup-product__body">
+					<div data-modal-head class="popup-product__head">
+						<h3 data-modal-title class="popup-product__title">
+							<!-- Fantuci зі смаком Малини -->
+						</h3>
+						<div data-modal-subtitle class="popup-product__subtitle">
+							<!-- вироби кондитерські, ТМ «Boni Sano» -->
+						</div>
+					</div>
+
+					<div data-modal-description-wrap class="popup-product__description">
+						<div data-modal-description>
+							<!-- Кондитерський виріб з ніжним конфітюром, який надає десерту особливої родзинки. Це знайомий і улюблений традиційний смак у сучасній інтерпретації. Стильний та якісний дизайн пакування підкреслює оновлений характер продукту й робить його привабливим для щоденного задоволення. -->
+						</div>
+					</div>
+					
+					<div class="popup-product__btn-wr">
+						<a href="#" data-fls-dynamic=".popup-product__body,992.98,last" data-fls-popup-link="popup-form" data-fls-button class="popup-product__btn btn btn--a" aria-label="open popup form">
+							<span>Замовити</span>
+						</a>
+					</div>
+
+					<div class="popup-product__bottom">
+						<div data-modal-block-1 class="popup-product__block-1">
+							<div class="popup-product__info">Характеристики:</div>
+							<p class="popup-product__text" data-modal-weight-row>Вага продукту: <span data-modal-weight>
+								<!-- 300 г(g) -->
+							</span></p>
+							<p class="popup-product__text" data-modal-life-row>Термін придатності: <span data-modal-life>
+								<!-- 12 місяців -->
+							</span></p>
+						</div>
+
+						<div data-modal-block-2 class="popup-product__block-2">
+							<div class="popup-product__info">Варіанти фасовки:</div>
+							<div class="popup-product__boxes">
+								<!-- <div class="popup-product__box">
+									<img class="popup-product__box-img" src="@img/icons/box-1.svg" width="60" height="60" alt="Image">
+									<div class="popup-product__box-t">шоубокс</div>
+									<div class="popup-product__box-c">460 г (20 шт * 23 г)</div>
+								</div>
+								<div class="popup-product__box">
+									<img class="popup-product__box-img" src="@img/icons/box-2.svg" width="60" height="60" alt="Image">
+									<div class="popup-product__box-t">ящик</div>
+									<div class="popup-product__box-c">8 шоубоксів</div>
+								</div> -->
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div data-modal-image data-fls-dynamic=".popup-product__body,992.98,1" class="popup-product__image">
+					<picture>
+						<source media="(max-width: 30.186em)" srcset="@img/boni/bonisamo-1-mb.webp" type="image/webp">
+						<img data-img-ignore class="ibg ibg--cn" src="@img/boni/bonisamo-1-pc.webp" alt="image">
+					</picture>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
