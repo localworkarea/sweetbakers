@@ -1223,6 +1223,9 @@ body::after {
   .page-molinero body::after {
     background-color: var(--orange);
   }
+  .popup-form [data-fls-popup-close] {
+    top: 1.625rem;
+  }
   .popup-form__body {
     padding: 4.8125rem 1.25rem 1.875rem;
   }

@@ -1,7 +1,7 @@
 
-import { gotoBlock, FLS } from "@js/common/functions.js";
+import { FLS } from "@js/common/functions.js";
 // Підключення функціоналу модуля форм
-import { formValidate } from "../_functions.js";
+// import { formValidate } from "../_functions.js";
 
 import './form.scss'
 
@@ -52,10 +52,10 @@ function formInit() {
 				}
 			} else {
 				e.preventDefault();
-				if (form.querySelector('.--form-error') && form.hasAttribute('data-fls-form-gotoerr')) {
-					const formGoToErrorClass = form.dataset.flsFormGotoerr ? form.dataset.flsFormGotoerr : '.--form-error';
-					gotoBlock(formGoToErrorClass);
-				}
+				// if (form.querySelector('.--form-error') && form.hasAttribute('data-fls-form-gotoerr')) {
+				// 	const formGoToErrorClass = form.dataset.flsFormGotoerr ? form.dataset.flsFormGotoerr : '.--form-error';
+				// 	// gotoBlock(formGoToErrorClass);
+				// }
 			}
 		}
 		// Дії після надсилання форми

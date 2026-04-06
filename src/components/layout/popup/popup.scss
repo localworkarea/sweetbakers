@@ -104,6 +104,11 @@ body::after {
 	top: 0%;
 	right: 50%;
 	transform: translate(50%,0%);
+	.popup-form & {
+		@media (max-width:toEm($mobileSmall)){
+			top: 26px;
+		}
+	}
 	@media (min-width:toEm($mobileSmall)){
 		top: 36px;
 		right: 40px;
