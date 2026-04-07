@@ -198,7 +198,6 @@
     left: 50%;
     transform: translate(-50%, 0);
     height: 100%;
-    aspect-ratio: 1920/924;
   }
   .prod-hero__container {
     gap: 3.75rem;

@@ -4377,7 +4377,7 @@ function initSliders() {
       (slide2) => slide2.classList.contains("swiper-slide")
     );
     const originalSlidesCount = originalSlides.length;
-    const isDesktop = window.innerWidth > 820;
+    const isDesktop = window.innerWidth > 821;
     if (isDesktop && originalSlidesCount <= 4) {
       originalSlides.forEach((slide2) => {
         const clone = slide2.cloneNode(true);
@@ -4408,7 +4408,7 @@ function initSliders() {
         addIcons: false
       },
       breakpoints: {
-        820: {
+        830: {
           slidesPerView: 3,
           slidesPerGroup: 1,
           spaceBetween: 74,
@@ -4486,45 +4486,27 @@ class Popup {
     let config = {
       logging: true,
       init: true,
-      //Для кнопок
       attributeOpenButton: "data-fls-popup-link",
-      // Атрибут для кнопки, яка викликає попап
       attributeCloseButton: "data-fls-popup-close",
-      // Атрибут для кнопки, що закриває попап
-      // Для сторонніх об'єктів
       fixElementSelector: "[data-fls-lp]",
-      // Атрибут для елементів із лівим паддингом (які fixed)
-      // Для об'єкту попапа
       attributeMain: "data-fls-popup",
       youtubeAttribute: "data-fls-popup-youtube",
-      // Атрибут для коду youtube
       youtubePlaceAttribute: "data-fls-popup-youtube-place",
-      // Атрибут для вставки ролика youtube
       setAutoplayYoutube: true,
-      // Зміна класів
       classes: {
         popup: "popup",
-        // popupWrapper: 'popup__wrapper',
         popupContent: "data-fls-popup-body",
         popupActive: "data-fls-popup-active",
-        // Додається для попапа, коли він відкривається
         bodyActive: "data-fls-popup-open"
-        // Додається для боді, коли попап відкритий
       },
       focusCatch: true,
-      // Фокус усередині попапа зациклений
       closeEsc: true,
-      // Закриття ESC
       bodyLock: true,
-      // Блокування скролла
       hashSettings: {
         location: false,
-        // Хеш в адресному рядку
         goHash: false
-        // Перехід по наявності в адресному рядку
       },
       on: {
-        // Події
         beforeOpen: function() {
         },
         afterOpen: function() {
@@ -4730,7 +4712,6 @@ class Popup {
     document.querySelector(`[${this.options.attributeOpenButton}="${classInHash}"]`);
     if (classInHash) this.open(classInHash);
   }
-  // Встановлення хеша
   _setHash() {
     history.pushState("", "", this.hash);
   }
